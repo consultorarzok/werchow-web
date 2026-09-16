@@ -1,4 +1,16 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Werchow — Sepelios, Memorial y Salas y Servicios Sociales en Jujuy. Nuestra vocación es estar.">
+<meta property="og:title" content="Werchow">
+<meta property="og:description" content="Sepelios, Memorial y Salas y Servicios Sociales en Jujuy. Nuestra vocación es estar.">
+<meta property="og:type" content="website">
 <title>Werchow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,900;1,400;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
 <style>
 /* ============ TOKENS ============ */
 :root{
@@ -30,27 +42,30 @@
   --shadow-1: 0 1px 2px rgba(26,33,64,.06), 0 8px 24px -12px rgba(26,33,64,.18);
   --shadow-2: 0 2px 6px rgba(26,33,64,.08), 0 24px 48px -20px rgba(26,33,64,.28);
 }
+/* Modo oscuro construido con los colores REALES del manual de marca:
+   fondo = Azul Oscuro Werchow #1A2140, texto = Hueso #F4F4EC, acentos = los
+   propios stops de los degradados de cada unidad (página 16 del manual). */
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0F1428; --bg-alt:#0B0F20; --surface:#161D3A;
-    --ink:#F1EFE3; --ink-soft:#B7BDD6; --ink-faint:#7E86A3;
-    --border:#2A3358; --border-soft:#232C50;
-    --sepelios:#5876BE; --sepelios-2:#8FA5E0;
-    --social:#8FC4E2; --social-2:#5CA2C7; --social-3:#B3D7EA;
-    --memorial:#A6B15E; --memorial-2:#C9D79A; --memorial-3:#E4EDC2;
-    --inst-1:#1A3A73; --inst-2:#2E5EA8; --inst-3:#5F97DD;
+    --bg:#1A2140; --bg-alt:#141A33; --surface:#232C52;
+    --ink:#F4F4EC; --ink-soft:#C6CADC; --ink-faint:#8890AD;
+    --border:#333F6E; --border-soft:#29335C;
+    --sepelios:#6E86C6; --sepelios-2:#96AAE0;
+    --social:#71A6C6; --social-2:#3E84AB; --social-3:#96BFD8;
+    --memorial:#A9AE5E; --memorial-2:#C5D493; --memorial-3:#E3EAC4;
+    --inst-1:#133D7D; --inst-2:#2568C5; --inst-3:#6FA3E8;
     --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
     --shadow-2: 0 2px 6px rgba(0,0,0,.35), 0 24px 60px -20px rgba(0,0,0,.6);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0F1428; --bg-alt:#0B0F20; --surface:#161D3A;
-  --ink:#F1EFE3; --ink-soft:#B7BDD6; --ink-faint:#7E86A3;
-  --border:#2A3358; --border-soft:#232C50;
-  --sepelios:#5876BE; --sepelios-2:#8FA5E0;
-  --social:#8FC4E2; --social-2:#5CA2C7; --social-3:#B3D7EA;
-  --memorial:#A6B15E; --memorial-2:#C9D79A; --memorial-3:#E4EDC2;
-  --inst-1:#1A3A73; --inst-2:#2E5EA8; --inst-3:#5F97DD;
+  --bg:#1A2140; --bg-alt:#141A33; --surface:#232C52;
+  --ink:#F4F4EC; --ink-soft:#C6CADC; --ink-faint:#8890AD;
+  --border:#333F6E; --border-soft:#29335C;
+  --sepelios:#6E86C6; --sepelios-2:#96AAE0;
+  --social:#71A6C6; --social-2:#3E84AB; --social-3:#96BFD8;
+  --memorial:#A9AE5E; --memorial-2:#C5D493; --memorial-3:#E3EAC4;
+  --inst-1:#133D7D; --inst-2:#2568C5; --inst-3:#6FA3E8;
   --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
   --shadow-2: 0 2px 6px rgba(0,0,0,.35), 0 24px 60px -20px rgba(0,0,0,.6);
 }
@@ -101,11 +116,30 @@ section{position:relative;}
 .btn-outline:hover{border-color:var(--ink-soft);}
 .btn-ghost{background:transparent;color:var(--ink-soft);font-weight:700;}
 .nav-toggle{display:none;background:none;border:none;color:var(--ink);cursor:pointer;padding:6px;}
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;
+  border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--ink);cursor:pointer;
+  transition:border-color .2s, transform .2s;
+}
+.theme-toggle:hover{border-color:var(--ink-soft);transform:translateY(-1px);}
+.theme-toggle:focus-visible{outline:2px solid var(--memorial);outline-offset:2px;}
+.theme-toggle svg{width:18px;height:18px;}
+.theme-toggle .icon-moon{display:none;}
+:root[data-theme="dark"] .theme-toggle .icon-sun{display:none;}
+:root[data-theme="dark"] .theme-toggle .icon-moon{display:block;}
 @media (max-width:880px){
   .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--border-soft);padding:18px 28px 26px;gap:16px;display:none;box-shadow:var(--shadow-2);}
   .nav-links.open{display:flex;}
+  .nav-links .mobile-call{color:var(--memorial);font-weight:800;}
   .nav-toggle{display:inline-flex;}
   .nav-cta .btn-ghost{display:none;}
+  .nav-cta{gap:8px;}
+}
+@media (max-width:640px){
+  .nav-cta .btn-primary{display:none;}
+}
+@media (max-width:380px){
+  .logo-word{display:none;}
 }
 
 /* ============ INFO LINK (para más información por WhatsApp) ============ */
@@ -314,6 +348,19 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
 @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 </style>
+</head>
+<body>
+
+<script>
+// Se aplica antes del resto para no mostrar el tema equivocado ni un instante.
+(function(){
+  try{
+    var saved = localStorage.getItem('werchow-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  }catch(e){}
+})();
+</script>
 
 <!-- ============ PROGRESS BAR ============ -->
 <div class="progress-bar" id="progressBar"></div>
@@ -334,10 +381,15 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
       <li><a href="#homenajes">Homenajes</a></li>
       <li><a href="#convenios">Convenios</a></li>
       <li><a href="#contacto">Contacto</a></li>
+      <li><a class="mobile-call" href="tel:+543884225555">Llamar ahora →</a></li>
     </ul>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="mailto:sepelios@werchow.com.ar">sepelios@werchow.com.ar</a>
       <a class="btn btn-primary" href="tel:+543884225555">Llamar ahora</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" type="button">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </button>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
@@ -747,6 +799,17 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
 
 <script>
 (function(){
+  // toggle de tema claro/oscuro, independiente del sistema, persistido
+  var themeBtn = document.getElementById('themeToggle');
+  function currentTheme(){ return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
+  themeBtn.setAttribute('aria-label', currentTheme() === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+  themeBtn.addEventListener('click', function(){
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try{ localStorage.setItem('werchow-theme', next); }catch(e){}
+    themeBtn.setAttribute('aria-label', next === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+  });
+
   // menú mobile
   var toggle = document.getElementById('navToggle');
   var links = document.getElementById('navLinks');
@@ -838,3 +901,6 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
   });
 })();
 </script>
+
+</body>
+</html>
