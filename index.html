@@ -105,6 +105,7 @@ section{position:relative;}
 .logo-word{font-family:var(--font-display);font-weight:600;font-size:1.32rem;letter-spacing:.01em;}
 .nav-links{display:flex;gap:30px;list-style:none;margin:0;padding:0;}
 .nav-links a{text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:.92rem;padding:6px 2px;border-bottom:2px solid transparent;transition:color .2s, border-color .2s;}
+.nav-links .mobile-call{display:none;}
 .nav-links a:hover,.nav-links a:focus-visible{color:var(--ink);border-color:var(--memorial);}
 .nav-cta{display:flex;align-items:center;gap:14px;}
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:.88rem;padding:11px 20px;border-radius:var(--radius-btn);text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;}
@@ -130,7 +131,7 @@ section{position:relative;}
 @media (max-width:880px){
   .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--border-soft);padding:18px 28px 26px;gap:16px;display:none;box-shadow:var(--shadow-2);}
   .nav-links.open{display:flex;}
-  .nav-links .mobile-call{color:var(--memorial);font-weight:800;}
+  .nav-links .mobile-call{display:block;color:var(--memorial);font-weight:800;}
   .nav-toggle{display:inline-flex;}
   .nav-cta .btn-ghost{display:none;}
   .nav-cta{gap:8px;}
@@ -159,7 +160,7 @@ section{position:relative;}
 .deco.on-light{border-color:rgba(26,33,64,.14);}
 
 /* ============ HERO — full-bleed cinematográfico + selector de unidades ============ */
-.hero{position:relative;color:#F7F6EC;overflow:hidden;min-height:88svh;display:flex;align-items:center;padding:64px 0 76px;view-transition-name:hero-panel;}
+.hero{position:relative;color:#F7F6EC;overflow:hidden;min-height:88vh;min-height:88svh;display:flex;align-items:center;padding:64px 0 76px;view-transition-name:hero-panel;}
 .hero-media{position:absolute;inset:0;z-index:0;}
 .hero-kenburns,.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .hero-kenburns{transition:background 1s ease;animation:heroBreathe 20s ease-in-out infinite alternate;}
@@ -202,7 +203,8 @@ section{position:relative;}
 .hero-scrollcue::before{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:2px;background:#fff;transform:translateX(-50%);animation:scrollcue 1.8s ease-in-out infinite;}
 @keyframes scrollcue{0%{opacity:1;top:7px;}70%{opacity:0;top:17px;}100%{opacity:0;top:7px;}}
 @media (prefers-reduced-motion: reduce){.hero-scrollcue::before{animation:none;}}
-@media (max-width:640px){.hero{min-height:82svh;padding:48px 0 64px;}.hero-scrollcue{display:none;}}
+@media (max-width:640px){.hero{min-height:82vh;min-height:82svh;padding:48px 0 64px;}.hero-scrollcue{display:none;}}
+@media (max-width:640px) and (orientation:landscape){.hero{min-height:100vh;min-height:100svh;padding:24px 0 40px;}}
 @media (max-width:560px){.switcher{display:flex;flex-wrap:wrap;justify-content:center;}}
 
 /* ============ INSTITUTIONAL RIBBON ============ */
@@ -417,9 +419,9 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
 <section class="hero" id="inicio" data-active="memorial">
   <div class="hero-media" aria-hidden="true">
     <div class="hero-kenburns"></div>
-    <!-- Cuando esté el video de marca: sacar el comentario y cargar assets/hero-loop.mp4 (loop de ~20s, ver prompt de generación). Si falta o no carga, el fondo cae solo al degradé animado de arriba. -->
+    <!-- Cada unidad tiene su propio video de fondo (assets/hero-loop-{unidad}.mp4, loop de ~20s — ver prompts de generación). El JS cambia el <source> al cambiar de pestaña. Si un video falta o no carga, esa pestaña cae sola al degradé animado de arriba. -->
     <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
-      <source src="assets/hero-loop.mp4" type="video/mp4">
+      <source id="heroVideoSource" src="assets/hero-loop-memorial.mp4" type="video/mp4">
     </video>
     <div class="hero-scrim"></div>
   </div>
@@ -831,19 +833,33 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
   document.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 
-  // fondo en loop del hero: recién se muestra si el archivo carga bien (si no existe, queda el degradé animado)
+  // fondo en loop del hero: un <video> compartido cuyo <source> se cambia por unidad.
+  // Recién se muestra (fade-in) si el archivo de ESA unidad carga bien; si falta o tira error,
+  // esa pestaña se queda en el degradé animado de abajo, sin romper nada.
   var heroVideo = document.getElementById('heroVideo');
+  var heroVideoSource = document.getElementById('heroVideoSource');
+  var currentVideoSrc = heroVideoSource ? heroVideoSource.getAttribute('src') : null;
   if (heroVideo) {
     heroVideo.addEventListener('canplay', function(){ heroVideo.classList.add('is-ready'); });
+    heroVideo.addEventListener('error', function(){ heroVideo.classList.remove('is-ready'); }, true);
+  }
+  function setHeroVideo(src){
+    if (!heroVideo || !heroVideoSource || !src || src === currentVideoSrc) return;
+    currentVideoSrc = src;
+    heroVideo.classList.remove('is-ready');
+    heroVideoSource.setAttribute('src', src);
+    heroVideo.load();
+    heroVideo.play().catch(function(){});
   }
 
-  // selector interactivo de unidades (hero)
+  // selector interactivo de unidades (hero) — cada una con su propio video de fondo
   var UNITS = {
     memorial: {
       eyebrow: 'Memorial y Salas — nueva propuesta',
       title: 'Presente pleno. <em>Futuro cuidado.</em>',
       lead: 'Con vistas abiertas al parque, ofrecemos espacios solemnes y cálidos para que las familias puedan despedir y rendir homenaje a sus seres queridos con la dignidad que merecen.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Memorial%20y%20Salas',
+      video: 'assets/hero-loop-memorial.mp4',
       fcIcon: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.4-9.5 9-9.5 9Z" stroke="#fff" stroke-width="1.6"/></svg>',
       fcStat: '+50 años', fcSub: 'acompañando familias en Jujuy'
     },
@@ -852,6 +868,7 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
       title: 'Atención fúnebre <em>humana</em>.',
       lead: 'Contenida y profesional, con planes adaptados a cada necesidad. Anticiparse es la mejor forma de atravesar los momentos difíciles con tranquilidad.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Sepelios',
+      video: 'assets/hero-loop-sepelios.mp4',
       fcIcon: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 8v8M8 12h8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6"/></svg>',
       fcStat: 'Guardia 24 hs.', fcSub: 'todos los días del año'
     },
@@ -860,6 +877,7 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
       title: 'Acompañar el <em>día a día</em>.',
       lead: 'Descuentos en farmacias, becas estudiantiles y un sistema de cobertura en salud que respalda a cada familia cuando lo necesita.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Servicios%20Sociales',
+      video: 'assets/hero-loop-social.mp4',
       fcIcon: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>',
       fcStat: '75%', fcSub: 'no planifica el futuro — por eso acompañamos antes'
     }
@@ -879,6 +897,7 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
     document.getElementById('heroFcIcon').innerHTML = u.fcIcon;
     document.getElementById('heroFcStat').textContent = u.fcStat;
     document.getElementById('heroFcSub').textContent = u.fcSub;
+    setHeroVideo(u.video);
     tabs.forEach(function(t){
       var active = t.getAttribute('data-unit') === key;
       t.classList.toggle('is-active', active);
