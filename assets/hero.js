@@ -50,7 +50,7 @@
   };
 
   var hero = document.querySelector('.hero');
-  var tabs = document.querySelectorAll('.switch-tab');
+  var tabs = document.querySelectorAll('.switch-tab[data-unit]');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function applyUnit(key){
