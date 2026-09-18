@@ -1,27 +1,45 @@
+/* ============ TIPOGRAFÍA DE MARCA ============
+   Larken (Ellen Luff) es la serif real del manual — archivos variables provistos
+   por el cliente en Drive (01 BRANDING / 02 TIPOGRAFÍA), convertidos a WOFF2.
+   Antes se usaba Fraunces como reemplazo porque Larken no está en Google Fonts. */
+@font-face{
+  font-family:'Larken';
+  src:url('fonts/Larken-Variable.woff2') format('woff2');
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:'Larken';
+  src:url('fonts/Larken-VariableItalic.woff2') format('woff2');
+  font-weight:100 900;
+  font-style:italic;
+  font-display:swap;
+}
+
 /* ============ TOKENS ============ */
 :root{
-  --bg:#F4F4EC;
+  --bg:#F4F4EC;            /* HUESO — color base de la identidad (manual, Cromática) */
   --bg-alt:#ECE9D9;
   --surface:#FBFAF3;
-  --ink:#1A2140;
+  --ink:#1A2140;           /* AZUL OSCURO WERCHOW — color institucional */
   --ink-soft:#4E5670;
   --ink-faint:#7B8299;
   --border:#DCD7C2;
   --border-soft:#E7E3D2;
 
-  --sepelios:#152B5E;
-  --sepelios-2:#2F4177;
-  --social:#71A6C6;
-  --social-2:#124964;
-  --social-3:#3E84AB;
-  --memorial:#777B3B;
-  --memorial-2:#3B3E1A;
-  --memorial-3:#C5D493;
-  --inst-1:#072452;
-  --inst-2:#133D7D;
-  --inst-3:#2568C5;
+  /* Cromática plana: un color identificatorio por unidad de negocio */
+  --sepelios:#152B5E;      /* AZUL — Sepelios */
+  --social:#71A6C6;        /* CELESTE — Servicios Sociales */
+  --memorial:#777B3B;      /* VERDE — Memorial y Salas */
 
-  --font-display:'Fraunces', Georgia, 'Times New Roman', serif;
+  /* Degradados de 3 stops por unidad (manual, Elementos gráficos) */
+  --inst-1:#11142A; --inst-2:#1D2646; --inst-3:#2F4177;        /* WERCHOW */
+  --sepelios-2:#072452; --sepelios-3:#133D7D; --sepelios-4:#2568C5;
+  --social-2:#124964; --social-3:#3E84AB; --social-4:#96BFD8;
+  --memorial-2:#3B3E1A; --memorial-3:#C5D493;
+
+  --font-display:'Larken', Georgia, 'Times New Roman', serif;
   --font-body:'Manrope', -apple-system, 'Segoe UI', sans-serif;
 
   --radius-btn:11px;
@@ -36,10 +54,11 @@
     --bg:#1A2140; --bg-alt:#141A33; --surface:#232C52;
     --ink:#F4F4EC; --ink-soft:#C6CADC; --ink-faint:#8890AD;
     --border:#333F6E; --border-soft:#29335C;
-    --sepelios:#6E86C6; --sepelios-2:#96AAE0;
-    --social:#71A6C6; --social-2:#3E84AB; --social-3:#96BFD8;
-    --memorial:#A9AE5E; --memorial-2:#C5D493; --memorial-3:#E3EAC4;
-    --inst-1:#133D7D; --inst-2:#2568C5; --inst-3:#6FA3E8;
+    --sepelios:#2568C5;
+    --sepelios-2:#133D7D; --sepelios-3:#2568C5; --sepelios-4:#2568C5;
+    --social:#96BFD8; --social-2:#3E84AB; --social-3:#96BFD8; --social-4:#96BFD8;
+    --memorial:#C5D493; --memorial-2:#777B3B; --memorial-3:#C5D493;
+    --inst-1:#1D2646; --inst-2:#2F4177; --inst-3:#2F4177;
     --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
     --shadow-2: 0 2px 6px rgba(0,0,0,.35), 0 24px 60px -20px rgba(0,0,0,.6);
   }
@@ -48,10 +67,11 @@
   --bg:#1A2140; --bg-alt:#141A33; --surface:#232C52;
   --ink:#F4F4EC; --ink-soft:#C6CADC; --ink-faint:#8890AD;
   --border:#333F6E; --border-soft:#29335C;
-  --sepelios:#6E86C6; --sepelios-2:#96AAE0;
-  --social:#71A6C6; --social-2:#3E84AB; --social-3:#96BFD8;
-  --memorial:#A9AE5E; --memorial-2:#C5D493; --memorial-3:#E3EAC4;
-  --inst-1:#133D7D; --inst-2:#2568C5; --inst-3:#6FA3E8;
+  --sepelios:#2568C5;
+  --sepelios-2:#133D7D; --sepelios-3:#2568C5; --sepelios-4:#2568C5;
+  --social:#96BFD8; --social-2:#3E84AB; --social-3:#96BFD8; --social-4:#96BFD8;
+  --memorial:#C5D493; --memorial-2:#777B3B; --memorial-3:#C5D493;
+  --inst-1:#1D2646; --inst-2:#2F4177; --inst-3:#2F4177;
   --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
   --shadow-2: 0 2px 6px rgba(0,0,0,.35), 0 24px 60px -20px rgba(0,0,0,.6);
 }
@@ -135,16 +155,31 @@ section{position:relative;}
 .info-link:hover{opacity:1;gap:10px;}
 .info-link svg{width:15px;height:15px;flex:none;}
 
-/* ============ DECORACIÓN — anillos y arcos finos (sin blur, sin blob) ============ */
+/* ============ RECURSOS GRÁFICOS DE MARCA ============
+   Archivos reales del manual (01 BRANDING / 03 ELEMENTOS GRÁFICOS): círculos,
+   semicírculos y degradados radiales. El manual los define como sistema:
+   "pueden utilizarse como fondos, degradados radiales o sobre el trazo de las
+   formas circulares", con el color institucional o el de la unidad de negocio. */
 .deco-field{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none;}
-.deco{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);opacity:1;}
-.deco.dashed{border-style:dashed;border-width:1.5px;}
-.deco.spin{animation:ring-spin 110s linear infinite;}
-.deco.spin-rev{animation:ring-spin 150s linear infinite reverse;}
-.deco.half{clip-path:inset(0 -2px 0 50%);}
-.deco.quarter{clip-path:inset(0 -2px -2px 0);}
+.brand-el{position:absolute;pointer-events:none;background-repeat:no-repeat;background-position:center;background-size:contain;}
+.brand-el.spin{animation:ring-spin 110s linear infinite;}
+.brand-el.spin-rev{animation:ring-spin 150s linear infinite reverse;}
 @keyframes ring-spin{to{transform:rotate(360deg);}}
-.deco.on-light{border-color:rgba(26,33,64,.14);}
+/* trazo circular completo */
+.ring-inst{background-image:url('brand/ring-inst.png');}
+.ring-social{background-image:url('brand/ring-social.png');}
+.ring-memorial{background-image:url('brand/ring-memorial.png');}
+/* semicírculo / arco */
+.arc-inst{background-image:url('brand/arc-inst.png');}
+.arc-social{background-image:url('brand/arc-social.png');}
+.arc-memorial{background-image:url('brand/arc-memorial.png');}
+/* degradado radial */
+.glow-inst{background-image:url('brand/glow-inst.webp');}
+.glow-sepelios{background-image:url('brand/glow-sepelios.webp');}
+.glow-social{background-image:url('brand/glow-social.webp');}
+.glow-memorial{background-image:url('brand/glow-memorial.webp');}
+/* sobre fondos oscuros el trazo necesita levantarse para leerse */
+.brand-el.on-dark{filter:brightness(2.1);opacity:.7;}
 
 /* ============ HERO — full-bleed cinematográfico + selector de unidades ============ */
 .hero{position:relative;color:#F7F6EC;overflow:hidden;min-height:88vh;min-height:88svh;display:flex;align-items:center;padding:64px 0 76px;view-transition-name:hero-panel;}
@@ -158,6 +193,11 @@ section{position:relative;}
 .hero-video{opacity:0;transition:opacity .6s ease;}
 .hero-video.is-ready{opacity:1;}
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,22,.42) 0%, rgba(8,10,22,.32) 40%, rgba(8,10,22,.78) 100%);}
+/* Trazo circular de marca detrás del texto del hero — el color sigue a la unidad activa */
+.hero-ring{width:min(660px,86vw);aspect-ratio:1/1;left:50%;top:50%;transform:translate(-50%,-50%);filter:brightness(2.4);opacity:.45;}
+.hero[data-active="memorial"] .hero-ring{background-image:url('brand/ring-memorial.png');}
+.hero[data-active="social"] .hero-ring{background-image:url('brand/ring-social.png');}
+@media (max-width:640px){.hero-ring{opacity:.35;}}
 @media (prefers-reduced-motion: reduce){.hero-kenburns{animation:none;}}
 
 .hero-content{position:relative;z-index:2;width:100%;max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
@@ -195,7 +235,7 @@ section{position:relative;}
 @media (max-width:560px){.switcher{display:flex;flex-wrap:wrap;justify-content:center;}}
 
 /* ============ INSTITUTIONAL RIBBON ============ */
-.ribbon{background:linear-gradient(120deg, var(--inst-1), var(--inst-2) 55%, var(--inst-3) 140%);color:#EEF2FA;padding:64px 0;overflow:hidden;}
+.ribbon{background:var(--inst-1) url('brand/bg-inst.jpg') center/cover no-repeat;color:#EEF2FA;padding:64px 0;overflow:hidden;}
 .ribbon-inner{position:relative;z-index:2;display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;}
 .ribbon h2{font-size:clamp(1.7rem,3vw,2.3rem);color:#fff;}
 .ribbon p{color:#D6E0F3;font-size:1.02rem;max-width:56ch;}
@@ -288,7 +328,7 @@ section{position:relative;}
 
 /* ============ CONVENIOS ============ */
 .convenios-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-.stat-block{border-radius:18px;padding:40px 36px;color:#F1F3F7;position:relative;overflow:hidden;background:linear-gradient(150deg,var(--inst-1),var(--inst-2) 70%,var(--inst-3) 150%);}
+.stat-block{border-radius:18px;padding:40px 36px;color:#F1F3F7;position:relative;overflow:hidden;background:linear-gradient(150deg,#124964,#3E84AB 70%,#96BFD8 160%);}/* stops fijos del degradado Servicios Sociales: el bloque siempre lleva texto blanco, no debe aclararse en modo oscuro */
 .stat-block .stat-num{font-family:var(--font-display);font-size:clamp(3rem,6vw,4.4rem);line-height:1;color:#fff;}
 .stat-block .stat-txt{margin-top:14px;font-size:1rem;max-width:34ch;color:#D9E2F4;}
 .stat-block .info-link{margin-top:22px;color:#fff;}
@@ -301,7 +341,7 @@ section{position:relative;}
 @media (max-width:860px){.convenios-wrap{grid-template-columns:1fr;}}
 
 /* ============ PLANES / ASISTENTE ============ */
-.planes{border-radius:20px;background:linear-gradient(155deg,var(--sepelios) 0%, var(--sepelios-2) 60%, #4C63A6 150%);color:#EEF1FA;padding:56px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;position:relative;overflow:hidden;}
+.planes{border-radius:20px;background:var(--sepelios-2) url('brand/bg-sepelios.jpg') center/cover no-repeat;color:#EEF1FA;padding:56px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;position:relative;overflow:hidden;}
 .planes h2{color:#fff;font-size:clamp(1.7rem,3vw,2.2rem);}
 .planes p{color:#D6DEF2;margin-top:14px;font-size:1rem;max-width:52ch;}
 .planes-actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap;}

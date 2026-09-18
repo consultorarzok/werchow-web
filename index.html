@@ -10,7 +10,8 @@
 <title>Werchow</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,900;1,400;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="assets/fonts/Larken-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -77,6 +78,8 @@
       <source id="heroVideoSource" src="assets/hero-loop-memorial.mp4" type="video/mp4">
     </video>
     <div class="hero-scrim"></div>
+    <!-- Trazo circular del manual de marca, detrás del texto (ver "Elementos gráficos"): cambia de color con la unidad activa. -->
+    <div class="hero-ring brand-el"></div>
   </div>
   <div class="container hero-content">
     <div class="switcher" id="unidades" role="tablist" aria-label="Elegí una unidad de negocio">
@@ -101,7 +104,10 @@
 
 
 <section class="ribbon">
-  <div class="deco-field" aria-hidden="true"><div class="deco dashed spin" style="width:300px;height:300px;top:-160px;left:4%;border-color:rgba(255,255,255,.22);"></div></div>
+  <div class="deco-field" aria-hidden="true">
+    <div class="brand-el ring-inst on-dark spin" style="width:420px;height:420px;top:-190px;left:2%;"></div>
+    <div class="brand-el glow-inst" style="width:520px;height:520px;bottom:-280px;right:-120px;opacity:.55;"></div>
+  </div>
   <div class="container ribbon-inner">
     <div>
       <div class="ribbon-mark" style="border-radius:50%;border:1.2px solid #EEF2FA73;display:flex;align-items:center;justify-content:center;">
@@ -175,7 +181,9 @@
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div class="deco-field" aria-hidden="true"><div class="deco dashed" style="width:340px;height:340px;top:-170px;right:-100px;border-color:rgba(255,255,255,.16);"></div></div>
+  <div class="deco-field" aria-hidden="true">
+    <div class="brand-el ring-memorial on-dark spin" style="width:460px;height:460px;top:-200px;right:-120px;"></div>
+  </div>
   <div class="container footer-grid">
     <div class="footer-brand">
       <a class="logo" href="index.html" style="color:#F5F4E8;">
