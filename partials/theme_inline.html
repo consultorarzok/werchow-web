@@ -1,0 +1,10 @@
+<script>
+// Se aplica antes del resto para no mostrar el tema equivocado ni un instante.
+(function(){
+  try{
+    var saved = localStorage.getItem('werchow-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  }catch(e){}
+})();
+</script>

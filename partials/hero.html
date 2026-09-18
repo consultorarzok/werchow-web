@@ -1,0 +1,29 @@
+<section class="hero" id="inicio" data-active="memorial">
+  <div class="hero-media" aria-hidden="true">
+    <div class="hero-kenburns"></div>
+    <!-- Cada unidad tiene su propio video de fondo (assets/hero-loop-{unidad}.mp4, loop de ~20s — ver prompts de generación). El JS cambia el <source> al cambiar de pestaña. Si un video falta o no carga, esa pestaña cae sola al degradé animado de arriba. -->
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+      <source id="heroVideoSource" src="assets/hero-loop-memorial.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="switcher" id="unidades" role="tablist" aria-label="Elegí una unidad de negocio">
+      <button class="switch-tab is-active" type="button" data-unit="memorial" role="tab" aria-selected="true">Memorial y Salas</button>
+      <button class="switch-tab" type="button" data-unit="sepelios" role="tab" aria-selected="false">Sepelios</button>
+      <button class="switch-tab" type="button" data-unit="social" role="tab" aria-selected="false">Servicios sociales</button>
+    </div>
+    <p class="eyebrow hero-eyebrow"><span class="dot"></span><span id="heroEyebrow">Memorial y Salas — nueva propuesta</span></p>
+    <h1 id="heroTitle">Presente pleno. <em>Futuro cuidado.</em></h1>
+    <p class="lead" id="heroLead">Con vistas abiertas al parque, ofrecemos espacios solemnes y cálidos para que las familias puedan despedir y rendir homenaje a sus seres queridos con la dignidad que merecen.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" id="heroWaBtn" href="https://wa.me/5493884300930?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Memorial%20y%20Salas" target="_blank" rel="noopener">Más información →</a>
+      <a class="btn btn-outline" href="tel:+543884225555">Llamar a Werchow</a>
+    </div>
+    <div class="hero-stat">
+      <div class="fc-icon" id="heroFcIcon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.4-9.5 9-9.5 9Z" stroke="#fff" stroke-width="1.6"/></svg></div>
+      <strong id="heroFcStat">+50 años</strong><span id="heroFcSub">acompañando familias en Jujuy</span>
+    </div>
+  </div>
+  <div class="hero-scrollcue" aria-hidden="true"></div>
+</section>

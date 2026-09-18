@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Werchow — Sepelios, Memorial y Salas y Servicios Sociales en Jujuy. Nuestra vocación es estar.">
-<meta property="og:title" content="Werchow">
-<meta property="og:description" content="Werchow — Sepelios, Memorial y Salas y Servicios Sociales en Jujuy. Nuestra vocación es estar.">
+<meta name="description" content="Familias que ya confiaron en Werchow — reseñas reales en Google, con nombre, tal cual figuran en nuestra ficha.">
+<meta property="og:title" content="Reseñas — Werchow">
+<meta property="og:description" content="Familias que ya confiaron en Werchow — reseñas reales en Google, con nombre, tal cual figuran en nuestra ficha.">
 <meta property="og:type" content="website">
-<title>Werchow</title>
+<title>Reseñas — Werchow</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,900;1,400;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
@@ -37,9 +37,9 @@
       <span class="logo-word">werchow</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" aria-current="page">Inicio</a></li>
+      <li><a href="index.html">Inicio</a></li>
       <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="resenas.html">Reseñas</a></li>
+      <li><a href="resenas.html" aria-current="page">Reseñas</a></li>
       <li><a href="homenajes.html">Homenajes</a></li>
       <li><a href="convenios.html">Convenios</a></li>
       <li><a href="contacto.html">Contacto</a></li>
@@ -69,107 +69,87 @@
 </a>
 
 
-<section class="hero" id="inicio" data-active="memorial">
-  <div class="hero-media" aria-hidden="true">
-    <div class="hero-kenburns"></div>
-    <!-- Cada unidad tiene su propio video de fondo (assets/hero-loop-{unidad}.mp4, loop de ~20s — ver prompts de generación). El JS cambia el <source> al cambiar de pestaña. Si un video falta o no carga, esa pestaña cae sola al degradé animado de arriba. -->
-    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
-      <source id="heroVideoSource" src="assets/hero-loop-memorial.mp4" type="video/mp4">
-    </video>
-    <div class="hero-scrim"></div>
-  </div>
-  <div class="container hero-content">
-    <div class="switcher" id="unidades" role="tablist" aria-label="Elegí una unidad de negocio">
-      <button class="switch-tab is-active" type="button" data-unit="memorial" role="tab" aria-selected="true">Memorial y Salas</button>
-      <button class="switch-tab" type="button" data-unit="sepelios" role="tab" aria-selected="false">Sepelios</button>
-      <button class="switch-tab" type="button" data-unit="social" role="tab" aria-selected="false">Servicios sociales</button>
-    </div>
-    <p class="eyebrow hero-eyebrow"><span class="dot"></span><span id="heroEyebrow">Memorial y Salas — nueva propuesta</span></p>
-    <h1 id="heroTitle">Presente pleno. <em>Futuro cuidado.</em></h1>
-    <p class="lead" id="heroLead">Con vistas abiertas al parque, ofrecemos espacios solemnes y cálidos para que las familias puedan despedir y rendir homenaje a sus seres queridos con la dignidad que merecen.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" id="heroWaBtn" href="https://wa.me/5493884300930?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Memorial%20y%20Salas" target="_blank" rel="noopener">Más información →</a>
-      <a class="btn btn-outline" href="tel:+543884225555">Llamar a Werchow</a>
-    </div>
-    <div class="hero-stat">
-      <div class="fc-icon" id="heroFcIcon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.4-9.5 9-9.5 9Z" stroke="#fff" stroke-width="1.6"/></svg></div>
-      <strong id="heroFcStat">+50 años</strong><span id="heroFcSub">acompañando familias en Jujuy</span>
-    </div>
-  </div>
-  <div class="hero-scrollcue" aria-hidden="true"></div>
-</section>
-
-
-<section class="ribbon">
-  <div class="deco-field" aria-hidden="true"><div class="deco dashed spin" style="width:300px;height:300px;top:-160px;left:4%;border-color:rgba(255,255,255,.22);"></div></div>
-  <div class="container ribbon-inner">
-    <div>
-      <div class="ribbon-mark" style="border-radius:50%;border:1.2px solid #EEF2FA73;display:flex;align-items:center;justify-content:center;">
-        <img alt="" style="height:34px;width:auto;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABJCAYAAAD2QuLaAAAHC0lEQVR4nO2dzXnbRhCGX/m4FytowHQFZiowXUHUgdmB0YHXHSAVhO5ArsBUBaErCFlA+EgH46ocsJApCj+LmVkAVvydJJAzO8DsuwD3Dxffv/+7BAqG6xrYOJfdCmxbVZbHBbARmG6Bwiqesjx6YDXQ7Nq5rLAo/1xleVwBOXA5wGx7cX9/T1ke98ArQbnfgFWCJG+Bt1PFU5bHa+APgelr57K9puwmleWxAD4ITF+/CH94YdlvqGqVtbzQ7g2y1uhBgRRJcj8nSu4SWXI/O5ftL+7v72tHe2QU3wGLGVEMCpKE5Sa5Bop4IFyDFycHvDCGl8yLYrFtoFdyMc3u/adSxPPQmjwQHBzueR4Ui+IRnv/c6H0Uz4uzD70wllQUb4R2g+Mpy+MaWeVORe8VBq3JI4KD4z3zoniUeITlHIBlogRL4nlyzucEg47iK6Ftl7zQLpri8JtXUol8ouSuMWpNnhAcCtgLCzg4ly0Edp1KSXFZHi+BPVWFGKJU53oJ7DB6FmgiGOTUvAq1z1peaBdDcc7w5ILuKb9LObLKnDdV5EaC4f9B8UzpNY2njWCQ9wjNkeJFy2cFMnrXwlj6lGPcmnQRfImsNsG8KP7iXHbV4GsB/CMI48a5bCWw61SIZ4dxa9JKcGjSioGF1ZoTxbmhL41djF/z1qSVYHgWFH9yLvMNPpbA34LiU9KbpDXpugf/7BTf0R572/E+5UK7PvlUdp0JDiqoLpZEa6Fdq5zLNlQ9SH1q/Nmg7MDfCew6FeJ5LzC9cS7b9n2pN8FKit+GE7CW7/n8JlQEia20TKmkfqPsYggGHcVRgQxRBMWNZSo68FMN5q+Qx7ON+WJUgn8yirtOvjAuSyup32i7WIJhnhSfx3PXVpaiA/9TInrXjNCaRCd4phQX5/93nLwX+O96EtfKj2E3hGCYGcU8jufQ9JsXVMOBqQbz14zUmgxK8NwoPosnb/pO6Kxp/KxHSegN8XiBqSieoQTDPCn+4lx23fJ5jrADPwW9yIcDRa1JZ1dlm0KT93GwYaUkk8Ob9IyGA8XToSQEg67p8grboSqY32C+JB7xs4CIYICyPG6QdbHBCBQrOvBT0bsgwXBgn6QEwwQT00cqQ2oX43f01kRMMMyX4mc0HKhuTTQEw3wpLoR23jCGUxVCO68tWJXgQOBnofn7ULNNpejAh+oJ11SK1YpdI2LR0hIM86NY41Nja+1TavdIqntwrbnci0MX4F9KN5bxrICvAlOzZwELgkFX29ZGMYBNrbfwUauYOgaTBCvvxXno4VFJ0YF/LpNngxDPG4Fp1FScWFkRDBMuPVV04LfJwpfUx9qg7AeZJXhiinNs6K2loljRmphPDbIkGCagWDEc2CcvMQrxFGOW2SXTBE9EcY6sC7BP70eOJ8nEPmuCYUSKQzM6yGagBvlWTi6Q2PXKPMEjU+xJQ2+tofHkjDwc2KcUBMMIm6cEeqWdK7EaGo9kEkTKiX1pEhx+x90IzdeR3/NC/0MVS7EX+k9GL6QjGBJuA6FYzyNRL8WK1iQpvZAwwUqKvfLzNsUsWmtSH8WF1G9KeiEtwZCAYsVw4IHh2wPXaqVYMRx4sBgO7FPSBCeiuO14n9aJnvCl8UjtBik1wWBIsWI9z2kHvjSel5w9AGpakzHohRESbEzx+f+D/WgpPvu/EPpZC+0GawyCwYBiRQd+0/CbVTyTDwf2yWRGR4wUWwMfgCWy7f0Afm/aekETj3PZQrEx27sxEzwWwaCghqpnTDr8trOOJ1QOq9YkqUYjGNTb9EvUOb9qgnhGpRfGJRjGXZcUM/zmR4ijVvS+GpYalWAYlZqo2ZFzi8daYxMM41AzZCW8TxhHrSSD+TEanWBQbQ0co8FraUegeBJ6YRqCIfG6JEEHvk8QR60ku/TEahKCIRnF4pXwiShO9sqdWE1FMCRaB6S4mN4wjlqWL8tcluVxNXQi4GQEgznF6rW0xhSr6T2Z0P8hHDpQXa8D1ejYts/HlATD81mN0CQVvSG5W6ox7HfOZRehAv9G1bP3NWa75kkJBjOKzfbVMKLYojUpqN5DtaSqeEvgluodxZuyPOb18a6HuKkJhvmRZ+HLwscHfkzpWVItTt8CRVker1z1Iuo9PUOPkyd4wAbfbTJZCV8r3Ne+KVyoB/PDHiNQJbTWPvx/y4+3yGypkt+qyRMc5CeybVOhsPUG5V/Cw1aNtT5SbSyz58e881t6Xvk+iwQrKE4y/BbikVBs0prU53S2t+cnqpkoi5NjKx5T/kSzSHDQEvgz8rt3VCd8lSoYqosXGw/Yx3PD09YgpyLWn8wH23Y5mfwp+peadbIz3jVn86dDcq+BjXNZ3uXnV4JnrPCwtaFqlndU998l1VywxndCnetXgn8CBWKXVM3zDtjFDmD8B9kCt0DbdRt+AAAAAElFTkSuQmCC">
-      </div>
-    </div>
-    <div>
-      <h2>Nuestra vocación es estar.</h2>
-      <p>Nacimos para acompañar a las familias en los momentos que más importan. Con más de cinco décadas de trayectoria, aprendimos que acompañar es un camino continuo: es estar antes, durante y para siempre en la vida de cada familia.</p>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
+<section class="section section-alt" id="testimonios">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow">Cómo acompañamos</p>
-      <h2>Antes, durante y para siempre</h2>
-      <p>Tres instancias reales, pensadas para acompañar la vida completa de cada familia — no solo un momento puntual.</p>
+      <p class="eyebrow" style="color:var(--social-2)">Reseñas reales en Google</p>
+      <h2>Familias que ya confiaron en Werchow</h2>
+      <p>Esto es lo que dejaron escrito, con su nombre, quienes ya nos eligieron — tal cual figura en nuestra ficha de Google.</p>
     </div>
-    <div class="moments">
-      <div class="moment">
-        <div class="moment-mark">1</div>
-        <span class="m-word">Antes</span>
-        <span class="m-tag">Servicios sociales</span>
-        <p>Una red de beneficios que acompaña el día a día: descuentos en farmacias, becas estudiantiles y cobertura en salud, antes de que haga falta.</p>
-        <a class="info-link" href="https://wa.me/5493884300930?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Servicios%20Sociales" target="_blank" rel="noopener">Más información
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+
+    <div class="testi-head">
+      <div class="testi-score">
+        <span class="num">4,5</span>
+        <div>
+          <div class="testi-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 14.9l-5.2 2.9 1-5.9L1.5 7.7l5.9-.8L10 1.5Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 14.9l-5.2 2.9 1-5.9L1.5 7.7l5.9-.8L10 1.5Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 14.9l-5.2 2.9 1-5.9L1.5 7.7l5.9-.8L10 1.5Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 14.9l-5.2 2.9 1-5.9L1.5 7.7l5.9-.8L10 1.5Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 14.9l-5.2 2.9 1-5.9L1.5 7.7l5.9-.8L10 1.5Z" opacity=".45"/></svg>
+          </div>
+          <span class="testi-count">135 reseñas en Google · WERCHOW S.A., Gral. Lavalle 123</span>
+        </div>
       </div>
-      <div class="moment">
-        <div class="moment-mark">2</div>
-        <span class="m-word">Durante</span>
-        <span class="m-tag">Sepelios</span>
-        <p>Atención fúnebre contenida y profesional, con planes adaptados a cada necesidad y guardia las 24 horas, desde hace 50 años.</p>
-        <a class="info-link" href="https://wa.me/5493884300930?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Sepelios" target="_blank" rel="noopener">Más información
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="moment">
-        <div class="moment-mark">3</div>
-        <span class="m-word">Para siempre</span>
-        <span class="m-tag">Memorial y Salas</span>
-        <p>Espacios solemnes y cálidos, con vistas abiertas al parque, para despedir y rendir homenaje con la dignidad que cada familia merece.</p>
-        <a class="info-link" href="https://wa.me/5493884300930?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Memorial%20y%20Salas" target="_blank" rel="noopener">Más información
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
+      <a class="btn btn-outline" href="https://www.google.com/maps/place/WERCHOW+S.A./@-24.1874905,-65.3026143,17z/data=!3m1!4b1!4m6!3m5!1s0x941b0f43f094bc89:0xd4d719c5b501700!8m2!3d-24.1874905!4d-65.3026143!16s%2Fg%2F1tj97hl_" target="_blank" rel="noopener">Ver todas en Google ↗</a>
     </div>
-  </div>
-</section>
 
-
-<section class="phrases">
-  <div class="marquee" id="marquee">
-    <span>Nuestra vocación es estar.</span>
-    <span>Antes, durante y para siempre.</span>
-    <span>Presente pleno. Futuro cuidado.</span>
-    <span>En cada momento. En cada familia.</span>
-    <span>Acompañar es lo que somos.</span>
-    <span>Cuidar es, en el fondo, la forma más profunda de disfrutar el hoy.</span>
-    <span>Nuestra vocación es estar.</span>
-    <span>Antes, durante y para siempre.</span>
-    <span>Presente pleno. Futuro cuidado.</span>
-    <span>En cada momento. En cada familia.</span>
-    <span>Acompañar es lo que somos.</span>
-    <span>Cuidar es, en el fondo, la forma más profunda de disfrutar el hoy.</span>
+    <div class="testi-grid">
+      <article class="testi-card">
+        <span class="testi-quote-mark">“</span>
+        <p>Recomiendo a esta empresa por su seriedad y eficacia en todos los lugares donde solicitás atención y por la amable atención de sus empleados.</p>
+        <div class="testi-foot">
+          <div class="testi-avatar" style="background:var(--sepelios);">S</div>
+          <div class="testi-who"><strong>Sergio L.</strong><span>Hace 3 meses</span></div>
+          <span class="g-badge"><span class="g-dot"></span>Google</span>
+        </div>
+      </article>
+      <article class="testi-card">
+        <span class="testi-quote-mark">“</span>
+        <p>Las coberturas médicas nos brindan una gran ventaja a la hora de hacer análisis o tener asistencia cuando las obras sociales no nos autorizan. Es muy eficiente en cuanto al tiempo. Generalmente lo utilizo.</p>
+        <div class="testi-foot">
+          <div class="testi-avatar" style="background:var(--memorial);">F</div>
+          <div class="testi-who"><strong>Fatima F.</strong><span>Hace 3 meses</span></div>
+          <span class="g-badge"><span class="g-dot"></span>Google</span>
+        </div>
+      </article>
+      <article class="testi-card">
+        <span class="testi-quote-mark">“</span>
+        <p>Desde el momento en que he comenzado a usar los servicios médicos ha sido bueno, ya que no necesito hacer filas ni esperar la entrega de la orden autorizada; dentro de todo tiene descuentos que nos ayudan a solventar los gastos en las consultas médicas.</p>
+        <div class="testi-foot">
+          <div class="testi-avatar" style="background:var(--social-2);">L</div>
+          <div class="testi-who"><strong>Lourdes F.</strong><span>Hace 3 meses</span></div>
+          <span class="g-badge"><span class="g-dot"></span>Google</span>
+        </div>
+      </article>
+      <article class="testi-card">
+        <span class="testi-quote-mark">“</span>
+        <p>Excelente atención al cliente. Recomendado 100%.</p>
+        <div class="testi-foot">
+          <div class="testi-avatar" style="background:var(--inst-2);">I</div>
+          <div class="testi-who"><strong>Ignacio I.</strong><span>Hace 5 meses</span></div>
+          <span class="g-badge"><span class="g-dot"></span>Google</span>
+        </div>
+      </article>
+      <article class="testi-card">
+        <span class="testi-quote-mark">“</span>
+        <p>Me gusta la empresa porque nos anotamos por los descuentos médicos y es muy confiable.</p>
+        <div class="testi-foot">
+          <div class="testi-avatar" style="background:var(--sepelios-2);">M</div>
+          <div class="testi-who"><strong>Milena M.</strong><span>Hace 3 meses</span></div>
+          <span class="g-badge"><span class="g-dot"></span>Google</span>
+        </div>
+      </article>
+      <article class="testi-card">
+        <span class="testi-quote-mark">“</span>
+        <p>Lo recomiendo. Muy buena atención y precio.</p>
+        <div class="testi-foot">
+          <div class="testi-avatar" style="background:var(--memorial-2);">A</div>
+          <div class="testi-who"><strong>Amelia B.</strong><span>Local Guide · Hace 1 mes</span></div>
+          <span class="g-badge"><span class="g-dot"></span>Google</span>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -221,7 +201,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
-<script src="assets/hero.js"></script>
 
 </body>
 </html>
