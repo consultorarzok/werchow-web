@@ -49,6 +49,20 @@ def render_footer():
         html = html.replace(f'__{href_key}__', href_val)
     return html
 
+def page_meta(num, title):
+    """Encabezado corrido calcado del manual: filete, número y versalitas espaciadas."""
+    return f"""<div class="page-meta">
+  <div class="container page-meta-inner">
+    <span class="pm-num">{num}</span>
+    <span class="pm-rest">
+      <span class="pm-title">{title}</span>
+      <span class="pm-right">Werchow</span>
+    </span>
+  </div>
+</div>
+
+"""
+
 def head(title, description, og_title=None, og_description=None):
     og_title = og_title or title
     og_description = og_description or description
@@ -113,31 +127,31 @@ def main():
             active='NOSOTROS',
             title='Nosotros — Werchow',
             description='Quiénes somos en Werchow: más de cinco décadas acompañando familias en Jujuy con transparencia, cercanía y profesionalismo.',
-            main=nosotros,
+            main=page_meta('02', 'Nosotros') + nosotros,
         ),
         'resenas.html': dict(
             active='RESENAS',
             title='Reseñas — Werchow',
             description='Familias que ya confiaron en Werchow — reseñas reales en Google, con nombre, tal cual figuran en nuestra ficha.',
-            main=testimonios,
+            main=page_meta('03', 'Reseñas') + testimonios,
         ),
         'homenajes.html': dict(
             active='HOMENAJES',
             title='Homenajes virtuales — Werchow',
             description='Un espacio para recordar: cada familia puede compartir un homenaje virtual a quienes ya no están.',
-            main=homenajes,
+            main=page_meta('04', 'Homenajes virtuales') + homenajes,
         ),
         'convenios.html': dict(
             active='CONVENIOS',
             title='Convenios y planes — Werchow',
             description='Beneficios pensados para cada familia: descuentos en farmacias, becas estudiantiles, cobertura en salud y planes de sepelios.',
-            main=convenios + '\n\n' + planes,
+            main=page_meta('05', 'Convenios y planes') + convenios + '\n\n' + planes,
         ),
         'contacto.html': dict(
             active='CONTACTO',
             title='Contacto — Werchow',
             description='Comunicate con Werchow: teléfono, WhatsApp, email, dirección y sucursales en Jujuy.',
-            main=contacto,
+            main=page_meta('06', 'Contacto') + contacto,
         ),
     }
 

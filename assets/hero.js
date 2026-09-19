@@ -9,7 +9,19 @@
     heroVideo.addEventListener('canplay', function(){ heroVideo.classList.add('is-ready'); });
     heroVideo.addEventListener('error', function(){ heroVideo.classList.remove('is-ready'); }, true);
   }
-  function setHeroVideo(src){
+  // En pantalla angosta el hero es casi vertical y object-fit:cover recorta tanto un video
+  // 16:9 que la escena se pierde (en Servicios Sociales quedaban sólo manos y medio rostro).
+  // Para esa unidad hay una versión reencuadrada en vertical; si no existe variante mobile
+  // para una unidad, se usa el archivo normal.
+  var MOBILE_VARIANTS = { 'assets/hero-loop-social.mp4': 'assets/hero-loop-social-mobile.mp4' };
+  function pickVideo(src){
+    if (!src) return src;
+    var narrow = window.matchMedia('(max-width: 640px)').matches;
+    return (narrow && MOBILE_VARIANTS[src]) ? MOBILE_VARIANTS[src] : src;
+  }
+
+  function setHeroVideo(rawSrc){
+    var src = pickVideo(rawSrc);
     if (!heroVideo || !heroVideoSource || !src || src === currentVideoSrc) return;
     currentVideoSrc = src;
     heroVideo.classList.remove('is-ready');
