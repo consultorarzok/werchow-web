@@ -92,6 +92,21 @@ section{position:relative;}
 }
 ::view-transition-old(hero-panel),::view-transition-new(hero-panel){animation-duration:.5s;}
 
+/* ============ REVELADO AL SCROLL ============
+   El estado oculto se aplica SOLO si el JS está vivo (html.js-reveal) y si el
+   visitante no pidió menos movimiento: sin JS o con reduced-motion se ve todo
+   de entrada. Recorrido corto y curva de salida suave, nada brusco. */
+.js-reveal [data-reveal]{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1);
+  transition-delay:var(--reveal-delay,0ms);
+}
+.js-reveal [data-reveal].is-visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .js-reveal [data-reveal]{opacity:1;transform:none;transition:none;}
+}
+
 /* ============ PROGRESS BAR ============ */
 .progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--memorial),var(--sepelios),var(--social));z-index:300;transition:width .1s linear;}
 
@@ -193,11 +208,6 @@ section{position:relative;}
 .hero-video{opacity:0;transition:opacity .6s ease;}
 .hero-video.is-ready{opacity:1;}
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,22,.42) 0%, rgba(8,10,22,.32) 40%, rgba(8,10,22,.78) 100%);}
-/* Trazo circular de marca detrás del texto del hero — el color sigue a la unidad activa */
-.hero-ring{width:min(660px,86vw);aspect-ratio:1/1;left:50%;top:50%;transform:translate(-50%,-50%);filter:brightness(2.4);opacity:.45;}
-.hero[data-active="memorial"] .hero-ring{background-image:url('brand/ring-memorial.png');}
-.hero[data-active="social"] .hero-ring{background-image:url('brand/ring-social.png');}
-@media (max-width:640px){.hero-ring{opacity:.35;}}
 @media (prefers-reduced-motion: reduce){.hero-kenburns{animation:none;}}
 
 .hero-content{position:relative;z-index:2;width:100%;max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
@@ -320,8 +330,8 @@ section{position:relative;}
 .tribute-card .tc-name{font-family:var(--font-display);font-size:1.05rem;font-weight:600;}
 .tribute-card .tc-date{font-size:.78rem;color:var(--ink-faint);margin-top:2px;}
 .tribute-card .tc-quote{font-size:.85rem;color:var(--ink-soft);margin-top:10px;font-style:italic;}
-.tribute-card .flame{width:16px;height:16px;display:inline-block;vertical-align:-3px;margin-right:6px;color:var(--memorial);animation:flicker 2.6s ease-in-out infinite;}
-@keyframes flicker{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.7;transform:scale(.92);}}
+.tribute-card .flame{width:15px;height:15px;flex:none;color:var(--memorial);}
+.tribute-card .tc-name{display:flex;align-items:center;gap:7px;}
 .section-foot-actions{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin-top:30px;}
 @media (max-width:940px){.tributes{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.tributes{grid-template-columns:1fr;}}
@@ -361,7 +371,7 @@ section{position:relative;}
 .marquee{display:flex;width:max-content;animation:scroll-left 46s linear infinite;}
 .marquee:hover{animation-play-state:paused;}
 .marquee span{font-family:var(--font-display);font-style:italic;font-weight:500;font-size:clamp(1.3rem,2.6vw,2rem);color:var(--ink-soft);white-space:nowrap;padding:0 34px;display:flex;align-items:center;gap:34px;}
-.marquee span::after{content:'✦';font-style:normal;font-size:1rem;color:var(--memorial);opacity:.7;}
+.marquee span::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--memorial);opacity:.75;flex:none;}
 @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ============ WHATSAPP FLOTANTE (agente IA Werchow) ============ */

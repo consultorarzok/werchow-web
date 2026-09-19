@@ -23,6 +23,19 @@
     var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
   }catch(e){}
+
+  // Revelado al scroll: se marca el documento ANTES del primer pintado para que no
+  // haya parpadeo. Si site.js no llegara a correr, el timeout devuelve todo a la vista.
+  try{
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window){
+      var d = document.documentElement;
+      d.classList.add('js-reveal');
+      setTimeout(function(){
+        if (!d.hasAttribute('data-reveal-ready')) d.classList.remove('js-reveal');
+      }, 2500);
+    }
+  }catch(e){}
 })();
 </script>
 
@@ -75,13 +88,13 @@
     <div class="brand-el glow-social" style="width:620px;height:620px;top:-320px;right:-160px;opacity:.5;"></div>
   </div>
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <p class="eyebrow" style="color:var(--social-2)">Reseñas reales en Google</p>
       <h2>Familias que ya confiaron en Werchow</h2>
       <p>Esto es lo que dejaron escrito, con su nombre, quienes ya nos eligieron — tal cual figura en nuestra ficha de Google.</p>
     </div>
 
-    <div class="testi-head">
+    <div class="testi-head" data-reveal>
       <div class="testi-score">
         <span class="num">4,5</span>
         <div>
@@ -99,7 +112,7 @@
     </div>
 
     <div class="testi-grid">
-      <article class="testi-card">
+      <article class="testi-card" data-reveal>
         <span class="testi-quote-mark">“</span>
         <p>Recomiendo a esta empresa por su seriedad y eficacia en todos los lugares donde solicitás atención y por la amable atención de sus empleados.</p>
         <div class="testi-foot">
@@ -108,7 +121,7 @@
           <span class="g-badge"><span class="g-dot"></span>Google</span>
         </div>
       </article>
-      <article class="testi-card">
+      <article class="testi-card" data-reveal>
         <span class="testi-quote-mark">“</span>
         <p>Las coberturas médicas nos brindan una gran ventaja a la hora de hacer análisis o tener asistencia cuando las obras sociales no nos autorizan. Es muy eficiente en cuanto al tiempo. Generalmente lo utilizo.</p>
         <div class="testi-foot">
@@ -117,7 +130,7 @@
           <span class="g-badge"><span class="g-dot"></span>Google</span>
         </div>
       </article>
-      <article class="testi-card">
+      <article class="testi-card" data-reveal>
         <span class="testi-quote-mark">“</span>
         <p>Desde el momento en que he comenzado a usar los servicios médicos ha sido bueno, ya que no necesito hacer filas ni esperar la entrega de la orden autorizada; dentro de todo tiene descuentos que nos ayudan a solventar los gastos en las consultas médicas.</p>
         <div class="testi-foot">
@@ -126,7 +139,7 @@
           <span class="g-badge"><span class="g-dot"></span>Google</span>
         </div>
       </article>
-      <article class="testi-card">
+      <article class="testi-card" data-reveal>
         <span class="testi-quote-mark">“</span>
         <p>Excelente atención al cliente. Recomendado 100%.</p>
         <div class="testi-foot">
@@ -135,7 +148,7 @@
           <span class="g-badge"><span class="g-dot"></span>Google</span>
         </div>
       </article>
-      <article class="testi-card">
+      <article class="testi-card" data-reveal>
         <span class="testi-quote-mark">“</span>
         <p>Me gusta la empresa porque nos anotamos por los descuentos médicos y es muy confiable.</p>
         <div class="testi-foot">
@@ -144,7 +157,7 @@
           <span class="g-badge"><span class="g-dot"></span>Google</span>
         </div>
       </article>
-      <article class="testi-card">
+      <article class="testi-card" data-reveal>
         <span class="testi-quote-mark">“</span>
         <p>Lo recomiendo. Muy buena atención y precio.</p>
         <div class="testi-foot">

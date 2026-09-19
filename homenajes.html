@@ -23,6 +23,19 @@
     var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
   }catch(e){}
+
+  // Revelado al scroll: se marca el documento ANTES del primer pintado para que no
+  // haya parpadeo. Si site.js no llegara a correr, el timeout devuelve todo a la vista.
+  try{
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window){
+      var d = document.documentElement;
+      d.classList.add('js-reveal');
+      setTimeout(function(){
+        if (!d.hasAttribute('data-reveal-ready')) d.classList.remove('js-reveal');
+      }, 2500);
+    }
+  }catch(e){}
 })();
 </script>
 
@@ -75,47 +88,47 @@
     <div class="brand-el glow-memorial" style="width:720px;height:720px;bottom:-420px;left:50%;transform:translateX(-50%);opacity:.5;"></div>
   </div>
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <p class="eyebrow">Homenajes virtuales</p>
       <h2>Un espacio para recordar</h2>
       <p>Cada familia puede compartir un homenaje virtual: una foto, una fecha y un mensaje para quienes ya no están.</p>
     </div>
-    <span class="tribute-note">◐ Vista de ejemplo — así se verá cada homenaje</span>
+    <span class="tribute-note" data-reveal>Vista de ejemplo — así se verá cada homenaje</span>
     <div class="tributes">
-      <article class="tribute-card">
+      <article class="tribute-card" data-reveal>
         <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <div class="tc-body">
-          <div class="tc-name"><span class="flame">🕯</span>Nombre y Apellido</div>
+          <div class="tc-name"><svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3s4.5 3.7 4.5 7.6a4.5 4.5 0 0 1-9 0C7.5 6.7 12 3 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.5 15.6h5V21h-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Nombre y Apellido</div>
           <div class="tc-date">00 / 00 / 0000</div>
           <p class="tc-quote">"Un mensaje de la familia va acá."</p>
         </div>
       </article>
-      <article class="tribute-card">
+      <article class="tribute-card" data-reveal>
         <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <div class="tc-body">
-          <div class="tc-name"><span class="flame">🕯</span>Nombre y Apellido</div>
+          <div class="tc-name"><svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3s4.5 3.7 4.5 7.6a4.5 4.5 0 0 1-9 0C7.5 6.7 12 3 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.5 15.6h5V21h-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Nombre y Apellido</div>
           <div class="tc-date">00 / 00 / 0000</div>
           <p class="tc-quote">"Un mensaje de la familia va acá."</p>
         </div>
       </article>
-      <article class="tribute-card">
+      <article class="tribute-card" data-reveal>
         <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <div class="tc-body">
-          <div class="tc-name"><span class="flame">🕯</span>Nombre y Apellido</div>
+          <div class="tc-name"><svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3s4.5 3.7 4.5 7.6a4.5 4.5 0 0 1-9 0C7.5 6.7 12 3 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.5 15.6h5V21h-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Nombre y Apellido</div>
           <div class="tc-date">00 / 00 / 0000</div>
           <p class="tc-quote">"Un mensaje de la familia va acá."</p>
         </div>
       </article>
-      <article class="tribute-card">
+      <article class="tribute-card" data-reveal>
         <div class="img-placeholder"><svg viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <div class="tc-body">
-          <div class="tc-name"><span class="flame">🕯</span>Nombre y Apellido</div>
+          <div class="tc-name"><svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3s4.5 3.7 4.5 7.6a4.5 4.5 0 0 1-9 0C7.5 6.7 12 3 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.5 15.6h5V21h-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Nombre y Apellido</div>
           <div class="tc-date">00 / 00 / 0000</div>
           <p class="tc-quote">"Un mensaje de la familia va acá."</p>
         </div>
       </article>
     </div>
-    <div class="section-foot-actions">
+    <div class="section-foot-actions" data-reveal>
       <a class="btn btn-outline" style="border-color:var(--border);" href="mailto:sepelios@werchow.com.ar?subject=Homenaje%20virtual">Dejar un homenaje</a>
       <a class="info-link" href="https://wa.me/5493884300930?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20Homenajes%20virtuales" target="_blank" rel="noopener">Más información por WhatsApp
         <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>

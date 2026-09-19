@@ -23,6 +23,19 @@
     var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
   }catch(e){}
+
+  // Revelado al scroll: se marca el documento ANTES del primer pintado para que no
+  // haya parpadeo. Si site.js no llegara a correr, el timeout devuelve todo a la vista.
+  try{
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window){
+      var d = document.documentElement;
+      d.classList.add('js-reveal');
+      setTimeout(function(){
+        if (!d.hasAttribute('data-reveal-ready')) d.classList.remove('js-reveal');
+      }, 2500);
+    }
+  }catch(e){}
 })();
 </script>
 
@@ -75,7 +88,7 @@
     <div class="brand-el ring-memorial spin" style="width:560px;height:560px;top:-250px;left:-210px;opacity:.55;"></div>
   </div>
   <div class="container nosotros-grid">
-    <div>
+    <div data-reveal>
       <p class="eyebrow" style="color:var(--sepelios)">Quiénes somos</p>
       <h2 style="font-size:clamp(1.8rem,3.2vw,2.5rem);margin-top:10px;">Acompañar es lo que somos.</h2>
       <p>Construimos nuestro camino sobre valores que no cambian: la empatía, la calidez humana, la responsabilidad y la vocación genuina de servicio — valores que nos permitieron crecer y convertirnos en una empresa de confianza para generaciones de familias.</p>
@@ -87,7 +100,7 @@
         <span class="attr-chip"><span class="dot"></span>Solidez</span>
       </div>
     </div>
-    <div class="photo-trio">
+    <div class="photo-trio" data-reveal>
       <div class="img-placeholder pt-a">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 16.5 9 11l3.5 3.5L17 10l3 3M4 6h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8.5" cy="9" r="1.4" fill="currentColor"/></svg>
         <span class="ph-label">Foto: equipo Werchow</span>

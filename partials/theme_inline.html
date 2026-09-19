@@ -6,5 +6,18 @@
     var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
   }catch(e){}
+
+  // Revelado al scroll: se marca el documento ANTES del primer pintado para que no
+  // haya parpadeo. Si site.js no llegara a correr, el timeout devuelve todo a la vista.
+  try{
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window){
+      var d = document.documentElement;
+      d.classList.add('js-reveal');
+      setTimeout(function(){
+        if (!d.hasAttribute('data-reveal-ready')) d.classList.remove('js-reveal');
+      }, 2500);
+    }
+  }catch(e){}
 })();
 </script>
