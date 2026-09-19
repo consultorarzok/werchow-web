@@ -25,13 +25,14 @@ HREFS = {
     'RESENAS': 'resenas.html',
     'HOMENAJES': 'homenajes.html',
     'CONVENIOS': 'convenios.html',
+    'PLANES': 'planes.html',
     'CONTACTO': 'contacto.html',
 }
 
-NAV_KEYS = ['INICIO', 'NOSOTROS', 'RESENAS', 'HOMENAJES', 'CONVENIOS', 'CONTACTO']
+NAV_KEYS = ['INICIO', 'NOSOTROS', 'CONVENIOS', 'PLANES', 'HOMENAJES', 'CONTACTO']
 KEY_TO_HREF_KEY = {
-    'INICIO': 'HOME', 'NOSOTROS': 'NOSOTROS', 'RESENAS': 'RESENAS',
-    'HOMENAJES': 'HOMENAJES', 'CONVENIOS': 'CONVENIOS', 'CONTACTO': 'CONTACTO',
+    'INICIO': 'HOME', 'NOSOTROS': 'NOSOTROS', 'CONVENIOS': 'CONVENIOS',
+    'PLANES': 'PLANES', 'HOMENAJES': 'HOMENAJES', 'CONTACTO': 'CONTACTO',
 }
 
 def render_nav(active_key):
@@ -84,7 +85,13 @@ def head(title, description, og_title=None, og_description=None):
 </head>
 '''
 
+def render_links(html):
+    for href_key, href_val in HREFS.items():
+        html = html.replace(f'__{href_key}__', href_val)
+    return html
+
 def assemble(active_key, title, description, main_html, extra_scripts=''):
+    main_html = render_links(main_html)
     out = []
     out.append(head(title, description))
     out.append('<body>\n')
@@ -130,22 +137,28 @@ def main():
             main=page_meta('02', 'Nosotros') + nosotros,
         ),
         'resenas.html': dict(
-            active='RESENAS',
+            active='',
             title='Reseñas — Werchow',
             description='Familias que ya confiaron en Werchow — reseñas reales en Google, con nombre, tal cual figuran en nuestra ficha.',
-            main=page_meta('03', 'Reseñas') + testimonios,
+            main=page_meta('07', 'Reseñas') + testimonios,
         ),
         'homenajes.html': dict(
             active='HOMENAJES',
             title='Homenajes virtuales — Werchow',
             description='Un espacio para recordar: cada familia puede compartir un homenaje virtual a quienes ya no están.',
-            main=page_meta('04', 'Homenajes virtuales') + homenajes,
+            main=page_meta('05', 'Homenajes virtuales') + homenajes,
         ),
         'convenios.html': dict(
             active='CONVENIOS',
-            title='Convenios y planes — Werchow',
+            title='Convenios — Werchow',
             description='Beneficios pensados para cada familia: convenios médicos, descuentos en farmacias y ópticas, cartilla de prestadores y planes de sepelios en Jujuy.',
-            main=page_meta('05', 'Convenios y planes') + convenios + '\n\n' + planes,
+            main=page_meta('03', 'Convenios') + convenios,
+        ),
+        'planes.html': dict(
+            active='PLANES',
+            title='Planes Sepelios — Werchow',
+            description='Planes de sepelio de Werchow en Jujuy: qué incluye la cobertura de sepelio integral, edades de adhesión y cómo hablar con un asesor.',
+            main=page_meta('04', 'Planes Sepelios') + planes,
         ),
         'contacto.html': dict(
             active='CONTACTO',
