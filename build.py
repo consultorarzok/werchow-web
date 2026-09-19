@@ -144,13 +144,13 @@ def main():
         'convenios.html': dict(
             active='CONVENIOS',
             title='Convenios y planes — Werchow',
-            description='Beneficios pensados para cada familia: descuentos en farmacias, becas estudiantiles, cobertura en salud y planes de sepelios.',
+            description='Beneficios pensados para cada familia: convenios médicos, descuentos en farmacias y ópticas, cartilla de prestadores y planes de sepelios en Jujuy.',
             main=page_meta('05', 'Convenios y planes') + convenios + '\n\n' + planes,
         ),
         'contacto.html': dict(
             active='CONTACTO',
             title='Contacto — Werchow',
-            description='Comunicate con Werchow: teléfono, WhatsApp, email, dirección y sucursales en Jujuy.',
+            description='Contacto de Werchow: guardia de sepelios 24 horas, teléfonos, WhatsApp de adhesiones y cobranzas, y las direcciones y horarios de las cinco sucursales en Jujuy.',
             main=page_meta('06', 'Contacto') + contacto,
         ),
     }
