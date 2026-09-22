@@ -317,6 +317,13 @@ section{position:relative;}
 @media (max-width:940px){.testi-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:640px){.testi-grid{grid-template-columns:1fr;}.testi-head{flex-direction:column;align-items:flex-start;}.testi-head a.btn{margin-left:0;}}
 
+/* ============ TEXTO + FOTO (reutilizable: Nosotros, Planes) ============ */
+.split-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;margin-bottom:48px;}
+.split-grid .section-head{margin-bottom:0;}
+.split-photo{aspect-ratio:4/5;border-radius:16px;}
+.split-photo img{border-radius:16px;}
+@media (max-width:640px){.split-grid{grid-template-columns:1fr;margin-bottom:32px;}.split-photo{aspect-ratio:16/9;}}
+
 /* ============ NOSOTROS / ATRIBUTOS ============ */
 .nosotros-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
 .nosotros-grid p + p{margin-top:16px;}
