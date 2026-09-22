@@ -147,6 +147,7 @@ def main():
             title='Homenajes virtuales — Werchow',
             description='Un espacio para recordar: cada familia puede compartir un homenaje virtual a quienes ya no están.',
             main=page_meta('05', 'Homenajes virtuales') + homenajes,
+            extra_scripts='<script src="assets/homenajes.js"></script>\n',
         ),
         'convenios.html': dict(
             active='CONVENIOS',

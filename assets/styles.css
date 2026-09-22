@@ -137,7 +137,6 @@ section{position:relative;}
 .btn-primary:hover{box-shadow:var(--shadow-2);}
 .btn-outline{background:transparent;border-color:var(--border);color:var(--ink);}
 .btn-outline:hover{border-color:var(--ink-soft);}
-.btn-ghost{background:transparent;color:var(--ink-soft);font-weight:700;}
 .nav-toggle{display:none;background:none;border:none;color:var(--ink);cursor:pointer;padding:6px;}
 .theme-toggle{
   display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;
@@ -155,7 +154,6 @@ section{position:relative;}
   .nav-links.open{display:flex;}
   .nav-links .mobile-call{display:block;color:var(--memorial);font-weight:800;}
   .nav-toggle{display:inline-flex;}
-  .nav-cta .btn-ghost{display:none;}
   .nav-cta{gap:8px;}
 }
 @media (max-width:640px){
@@ -343,28 +341,41 @@ section{position:relative;}
 .photo-trio .pt-c{aspect-ratio:4/3;}
 @media (max-width:640px){.nosotros-grid{grid-template-columns:1fr;}.photo-trio{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}.photo-trio .pt-a{grid-column:1/3;grid-row:auto;aspect-ratio:16/9;}}
 
-/* ============ HOMENAJES — círculos sobre curva (aplicación WEB del manual, pág. 24) ============ */
+/* ============ HOMENAJES — cinta en bucle continuo, clic abre el homenaje ============ */
 .tributes-section{overflow:hidden;}
 .tributes-head{max-width:none;text-align:center;margin-bottom:26px;}
 .tributes-head h2{font-size:clamp(2.1rem,6vw,4rem);}
 .tributes-head p{margin-left:auto;margin-right:auto;}
 .tribute-note{display:block;width:max-content;max-width:100%;margin:0 auto 34px;font-size:.82rem;font-weight:700;color:var(--ink-faint);border:1px solid var(--border);padding:6px 14px;border-radius:100px;text-align:center;}
-.tribute-wave{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;align-items:start;padding-bottom:20px;}
-.tw-curve{position:absolute;top:0;left:0;width:100%;height:100%;color:var(--memorial);opacity:.55;pointer-events:none;}
-.tribute{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.tribute-wave .tribute:nth-child(1){margin-top:80px;}
-.tribute-wave .tribute:nth-child(2){margin-top:24px;}
-.tribute-wave .tribute:nth-child(3){margin-top:0;}
-.tribute-wave .tribute:nth-child(4){margin-top:24px;}
-.tribute-wave .tribute:nth-child(5){margin-top:80px;}
-.tribute-portrait{width:clamp(92px,13.5vw,168px);aspect-ratio:1/1;border-radius:50%;border:1.5px solid var(--memorial);background:var(--surface);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);box-shadow:var(--shadow-1);overflow:hidden;}
+.tribute-marquee{overflow:hidden;padding:12px 0 30px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.tribute-track{display:flex;width:max-content;gap:56px;padding:0 28px;animation:tribute-scroll 75s linear infinite;}
+.tribute-track:hover,.tribute-track.is-paused{animation-play-state:paused;}
+@keyframes tribute-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.tribute{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;flex:none;background:none;border:none;padding:6px;margin:0;font:inherit;color:inherit;cursor:pointer;border-radius:16px;transition:transform .25s ease;}
+.tribute:hover{transform:translateY(-3px);}
+.tribute:focus-visible{outline:2px solid var(--memorial);outline-offset:4px;}
+.tribute-portrait{width:clamp(92px,13.5vw,168px);aspect-ratio:1/1;border-radius:50%;border:1.5px solid var(--memorial);background:var(--surface);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);box-shadow:var(--shadow-1);overflow:hidden;transition:border-color .25s ease, box-shadow .25s ease;}
+.tribute:hover .tribute-portrait,.tribute:focus-visible .tribute-portrait{border-color:var(--memorial-2);box-shadow:var(--shadow-2);}
 .tribute-portrait svg{width:36%;height:36%;}
 .tribute-portrait img{width:100%;height:100%;object-fit:cover;display:block;}
 .tribute-name{margin-top:16px;font-family:var(--font-display);font-size:clamp(1rem,1.6vw,1.3rem);line-height:1.2;color:var(--ink);}
 .tribute-date{margin-top:5px;font-size:.72rem;letter-spacing:.12em;color:var(--memorial-2);}
-.tributes-actions{justify-content:center;margin-top:40px;}
+.tributes-actions{justify-content:center;margin-top:10px;}
 .section-foot-actions{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin-top:30px;}
-@media (max-width:760px){.tribute-wave{grid-template-columns:1fr 1fr;gap:26px 18px;}.tw-curve{display:none;}.tribute-wave .tribute:nth-child(2),.tribute-wave .tribute:nth-child(5){margin-top:30px;}.tribute-wave .tribute:nth-child(1),.tribute-wave .tribute:nth-child(3),.tribute-wave .tribute:nth-child(4){margin-top:0;}}
+@media (prefers-reduced-motion:reduce){.tribute-track{animation:none;}}
+
+.tribute-dialog{border:none;padding:0;background:none;max-width:min(92vw,420px);width:100%;overflow:visible;}
+.tribute-dialog::backdrop{background:rgba(10,12,26,.55);backdrop-filter:blur(3px);}
+.tribute-dialog[open]{display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--surface);color:var(--ink);border-radius:20px;padding:40px 32px 32px;box-shadow:var(--shadow-2);border:1px solid var(--border);}
+.tribute-dialog-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.tribute-dialog-close svg{width:16px;height:16px;}
+.tribute-dialog-close:hover{border-color:var(--ink-soft);}
+.tribute-dialog-photo{width:120px;aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:1.5px solid var(--memorial);box-shadow:var(--shadow-1);}
+.tribute-dialog-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.tribute-dialog-name{margin-top:18px;font-family:var(--font-display);font-size:1.5rem;color:var(--ink);}
+.tribute-dialog-dates{margin-top:4px;font-size:.78rem;letter-spacing:.12em;color:var(--memorial-2);}
+.tribute-dialog-message{margin-top:18px;font-size:.98rem;line-height:1.55;color:var(--ink-soft);max-width:32ch;}
+@media (max-width:640px){.tribute-track{gap:34px;}}
 
 /* ============ CONVENIOS ============ */
 .convenios-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}

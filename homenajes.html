@@ -60,7 +60,6 @@
       <li><a class="mobile-call" href="tel:+543884225555">Llamar ahora →</a></li>
     </ul>
     <div class="nav-cta">
-      <a class="btn btn-ghost" href="mailto:sepelios@werchow.com">sepelios@werchow.com</a>
       <a class="btn btn-primary" href="tel:+543884225555">Llamar ahora</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" type="button">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
@@ -102,39 +101,65 @@
       <h2>Homenajes virtuales</h2>
       <p>Cada familia puede compartir un homenaje: una foto, una fecha y un mensaje para quienes ya no están.</p>
     </div>
-    <span class="tribute-note" data-reveal>Vista de ejemplo — así se verá cada homenaje</span>
+    <span class="tribute-note" data-reveal>Vista de ejemplo — toque una foto o un nombre para ver el homenaje completo</span>
+  </div>
 
-    <div class="tribute-wave">
-      <svg class="tw-curve" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path d="M100,140 C180,140 220,105 300,95 C370,86 430,86 500,80 C570,86 630,86 700,95 C780,105 820,140 900,140" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      </svg>
-      <article class="tribute" data-reveal>
-        <div class="tribute-portrait"><img src="assets/homenajes/elena-torres.jpg" alt="" loading="lazy"></div>
-        <p class="tribute-name">Elena Torres</p>
-        <p class="tribute-date">1942 — 2026</p>
-      </article>
-      <article class="tribute" data-reveal>
-        <div class="tribute-portrait"><img src="assets/homenajes/ramon-aguilar.jpg" alt="" loading="lazy"></div>
-        <p class="tribute-name">Ramón Aguilar</p>
-        <p class="tribute-date">1938 — 2025</p>
-      </article>
-      <article class="tribute" data-reveal>
-        <div class="tribute-portrait"><img src="assets/homenajes/camila-vargas.jpg" alt="" loading="lazy"></div>
-        <p class="tribute-name">Camila Vargas</p>
-        <p class="tribute-date">2001 — 2025</p>
-      </article>
-      <article class="tribute" data-reveal>
-        <div class="tribute-portrait"><img src="assets/homenajes/lucas-ibarra.jpg" alt="" loading="lazy"></div>
-        <p class="tribute-name">Lucas Ibarra</p>
-        <p class="tribute-date">1999 — 2024</p>
-      </article>
-      <article class="tribute" data-reveal>
-        <div class="tribute-portrait"><img src="assets/homenajes/hugo-medina.jpg" alt="" loading="lazy"></div>
-        <p class="tribute-name">Hugo Medina</p>
-        <p class="tribute-date">1949 — 2024</p>
-      </article>
+  <div class="tribute-marquee" data-reveal>
+    <div class="tribute-track" id="tributeTrack">
+      <button class="tribute" type="button" data-name="Elena Torres" data-dates="1942 — 2026" data-photo="assets/homenajes/elena-torres.jpg" data-message="Su risa llenaba cada reunión familiar. La recordamos por su generosidad infinita y por enseñarnos, con el ejemplo, lo que significa acompañar a los demás.">
+        <span class="tribute-portrait"><img src="assets/homenajes/elena-torres.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Elena Torres</span>
+        <span class="tribute-date">1942 — 2026</span>
+      </button>
+      <button class="tribute" type="button" data-name="Ramón Aguilar" data-dates="1938 — 2025" data-photo="assets/homenajes/ramon-aguilar.jpg" data-message="Trabajador incansable y padre presente. Nos dejó su pasión por la tierra, sus mates compartidos y una manera tranquila de mirar la vida.">
+        <span class="tribute-portrait"><img src="assets/homenajes/ramon-aguilar.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Ramón Aguilar</span>
+        <span class="tribute-date">1938 — 2025</span>
+      </button>
+      <button class="tribute" type="button" data-name="Camila Vargas" data-dates="2001 — 2025" data-photo="assets/homenajes/camila-vargas.jpg" data-message="Se fue demasiado pronto, pero su alegría y sus ganas de ayudar a los demás quedan en cada persona que tuvo la suerte de conocerla.">
+        <span class="tribute-portrait"><img src="assets/homenajes/camila-vargas.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Camila Vargas</span>
+        <span class="tribute-date">2001 — 2025</span>
+      </button>
+      <button class="tribute" type="button" data-name="Lucas Ibarra" data-dates="1999 — 2024" data-photo="assets/homenajes/lucas-ibarra.jpg" data-message="Amigo de todos, siempre con una palabra de aliento. Su música y su buen humor siguen sonando en quienes lo quisieron.">
+        <span class="tribute-portrait"><img src="assets/homenajes/lucas-ibarra.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Lucas Ibarra</span>
+        <span class="tribute-date">1999 — 2024</span>
+      </button>
+      <button class="tribute" type="button" data-name="Hugo Medina" data-dates="1949 — 2024" data-photo="assets/homenajes/hugo-medina.jpg" data-message="Maestro de oficio y de vida. Formó a varias generaciones con paciencia y cariño, y dejó una huella imborrable en su comunidad.">
+        <span class="tribute-portrait"><img src="assets/homenajes/hugo-medina.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Hugo Medina</span>
+        <span class="tribute-date">1949 — 2024</span>
+      </button>
+      <button class="tribute" type="button" aria-hidden="true" tabindex="-1" data-name="Elena Torres" data-dates="1942 — 2026" data-photo="assets/homenajes/elena-torres.jpg" data-message="Su risa llenaba cada reunión familiar. La recordamos por su generosidad infinita y por enseñarnos, con el ejemplo, lo que significa acompañar a los demás.">
+        <span class="tribute-portrait"><img src="assets/homenajes/elena-torres.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Elena Torres</span>
+        <span class="tribute-date">1942 — 2026</span>
+      </button>
+      <button class="tribute" type="button" aria-hidden="true" tabindex="-1" data-name="Ramón Aguilar" data-dates="1938 — 2025" data-photo="assets/homenajes/ramon-aguilar.jpg" data-message="Trabajador incansable y padre presente. Nos dejó su pasión por la tierra, sus mates compartidos y una manera tranquila de mirar la vida.">
+        <span class="tribute-portrait"><img src="assets/homenajes/ramon-aguilar.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Ramón Aguilar</span>
+        <span class="tribute-date">1938 — 2025</span>
+      </button>
+      <button class="tribute" type="button" aria-hidden="true" tabindex="-1" data-name="Camila Vargas" data-dates="2001 — 2025" data-photo="assets/homenajes/camila-vargas.jpg" data-message="Se fue demasiado pronto, pero su alegría y sus ganas de ayudar a los demás quedan en cada persona que tuvo la suerte de conocerla.">
+        <span class="tribute-portrait"><img src="assets/homenajes/camila-vargas.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Camila Vargas</span>
+        <span class="tribute-date">2001 — 2025</span>
+      </button>
+      <button class="tribute" type="button" aria-hidden="true" tabindex="-1" data-name="Lucas Ibarra" data-dates="1999 — 2024" data-photo="assets/homenajes/lucas-ibarra.jpg" data-message="Amigo de todos, siempre con una palabra de aliento. Su música y su buen humor siguen sonando en quienes lo quisieron.">
+        <span class="tribute-portrait"><img src="assets/homenajes/lucas-ibarra.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Lucas Ibarra</span>
+        <span class="tribute-date">1999 — 2024</span>
+      </button>
+      <button class="tribute" type="button" aria-hidden="true" tabindex="-1" data-name="Hugo Medina" data-dates="1949 — 2024" data-photo="assets/homenajes/hugo-medina.jpg" data-message="Maestro de oficio y de vida. Formó a varias generaciones con paciencia y cariño, y dejó una huella imborrable en su comunidad.">
+        <span class="tribute-portrait"><img src="assets/homenajes/hugo-medina.jpg" alt="" loading="lazy"></span>
+        <span class="tribute-name">Hugo Medina</span>
+        <span class="tribute-date">1949 — 2024</span>
+      </button>
     </div>
+  </div>
 
+  <div class="container">
     <div class="section-foot-actions tributes-actions" data-reveal>
       <a class="btn btn-outline" style="border-color:var(--border);" href="mailto:sepelios@werchow.com?subject=Homenaje%20virtual">Dejar un homenaje</a>
       <a class="info-link" href="https://wa.me/5493884300930?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20Homenajes%20virtuales" target="_blank" rel="noopener">Más información por WhatsApp
@@ -142,6 +167,16 @@
       </a>
     </div>
   </div>
+
+  <dialog class="tribute-dialog" id="tributeDialog">
+    <button class="tribute-dialog-close" type="button" data-close aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <div class="tribute-dialog-photo"><img id="tdPhoto" src="" alt=""></div>
+    <p class="tribute-dialog-name" id="tdName"></p>
+    <p class="tribute-dialog-dates" id="tdDates"></p>
+    <p class="tribute-dialog-message" id="tdMessage"></p>
+  </dialog>
 </section>
 
 <!-- ============ FOOTER ============ -->
@@ -199,6 +234,7 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/homenajes.js"></script>
 
 </body>
 </html>
