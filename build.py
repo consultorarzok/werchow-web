@@ -157,7 +157,7 @@ def main():
         'planes.html': dict(
             active='PLANES',
             title='Planes Sepelios — Werchow',
-            description='Planes de sepelio de Werchow en Jujuy: qué incluye la cobertura de sepelio integral, edades de adhesión y cómo hablar con un asesor.',
+            description='Planes de sepelio de Werchow en Jujuy: qué incluye la asistencia de sepelio integral, edades de adhesión y cómo hablar con un asesor.',
             main=page_meta('04', 'Planes Sepelios') + planes,
         ),
         'contacto.html': dict(

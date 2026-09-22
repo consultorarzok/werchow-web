@@ -53,7 +53,7 @@
     social: {
       eyebrow: 'Servicios sociales — red de beneficios',
       title: 'Acompañar el <em>día a día</em>.',
-      lead: 'Descuentos en farmacias, becas estudiantiles y un sistema de cobertura en salud que respalda a cada familia cuando lo necesita.',
+      lead: 'Descuentos en farmacias, becas estudiantiles y un sistema de asistencia en salud que respalda a cada familia cuando lo necesita.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Servicios%20Sociales',
       video: 'assets/hero-loop-social.mp4',
       fcIcon: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>',
