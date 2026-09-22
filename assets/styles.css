@@ -336,10 +336,12 @@ section{position:relative;}
 .img-placeholder .ph-label{font-size:.8rem;font-weight:700;color:var(--ink);}
 .img-placeholder .ph-note{font-size:.74rem;color:var(--ink-faint);max-width:26ch;}
 .photo-trio .img-placeholder{color:var(--ink-faint);border-color:var(--border);background:var(--surface);}
+.img-placeholder.has-photo{border-style:solid;border-width:1px;padding:0;overflow:hidden;}
+.img-placeholder.has-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .photo-trio .pt-a{grid-column:1/2;grid-row:1/3;aspect-ratio:3/4;}
 .photo-trio .pt-b{aspect-ratio:4/3;}
 .photo-trio .pt-c{aspect-ratio:4/3;}
-@media (max-width:640px){.nosotros-grid{grid-template-columns:1fr;}.photo-trio{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}.photo-trio .pt-a{grid-column:1/3;aspect-ratio:16/9;}}
+@media (max-width:640px){.nosotros-grid{grid-template-columns:1fr;}.photo-trio{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}.photo-trio .pt-a{grid-column:1/3;grid-row:auto;aspect-ratio:16/9;}}
 
 /* ============ HOMENAJES — círculos sobre curva (aplicación WEB del manual, pág. 24) ============ */
 .tributes-section{overflow:hidden;}
@@ -347,20 +349,22 @@ section{position:relative;}
 .tributes-head h2{font-size:clamp(2.1rem,6vw,4rem);}
 .tributes-head p{margin-left:auto;margin-right:auto;}
 .tribute-note{display:block;width:max-content;max-width:100%;margin:0 auto 34px;font-size:.82rem;font-weight:700;color:var(--ink-faint);border:1px solid var(--border);padding:6px 14px;border-radius:100px;text-align:center;}
-.tribute-wave{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:start;padding-bottom:20px;}
+.tribute-wave{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;align-items:start;padding-bottom:20px;}
 .tw-curve{position:absolute;top:0;left:0;width:100%;height:100%;color:var(--memorial);opacity:.55;pointer-events:none;}
 .tribute{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.tribute-wave .tribute:nth-child(2){margin-top:104px;}
-.tribute-wave .tribute:nth-child(3){margin-top:10px;}
-.tribute-wave .tribute:nth-child(4){margin-top:10px;}
-.tribute-wave .tribute:nth-child(5){margin-top:104px;}
-.tribute-portrait{width:clamp(92px,13.5vw,168px);aspect-ratio:1/1;border-radius:50%;border:1.5px solid var(--memorial);background:var(--surface);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);box-shadow:var(--shadow-1);}
+.tribute-wave .tribute:nth-child(1){margin-top:80px;}
+.tribute-wave .tribute:nth-child(2){margin-top:24px;}
+.tribute-wave .tribute:nth-child(3){margin-top:0;}
+.tribute-wave .tribute:nth-child(4){margin-top:24px;}
+.tribute-wave .tribute:nth-child(5){margin-top:80px;}
+.tribute-portrait{width:clamp(92px,13.5vw,168px);aspect-ratio:1/1;border-radius:50%;border:1.5px solid var(--memorial);background:var(--surface);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);box-shadow:var(--shadow-1);overflow:hidden;}
 .tribute-portrait svg{width:36%;height:36%;}
+.tribute-portrait img{width:100%;height:100%;object-fit:cover;display:block;}
 .tribute-name{margin-top:16px;font-family:var(--font-display);font-size:clamp(1rem,1.6vw,1.3rem);line-height:1.2;color:var(--ink);}
 .tribute-date{margin-top:5px;font-size:.72rem;letter-spacing:.12em;color:var(--memorial-2);}
 .tributes-actions{justify-content:center;margin-top:40px;}
 .section-foot-actions{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin-top:30px;}
-@media (max-width:760px){.tribute-wave{grid-template-columns:1fr 1fr;gap:26px 18px;}.tw-curve{display:none;}.tribute-wave .tribute:nth-child(2),.tribute-wave .tribute:nth-child(5){margin-top:30px;}.tribute-wave .tribute:nth-child(3),.tribute-wave .tribute:nth-child(4){margin-top:0;}}
+@media (max-width:760px){.tribute-wave{grid-template-columns:1fr 1fr;gap:26px 18px;}.tw-curve{display:none;}.tribute-wave .tribute:nth-child(2),.tribute-wave .tribute:nth-child(5){margin-top:30px;}.tribute-wave .tribute:nth-child(1),.tribute-wave .tribute:nth-child(3),.tribute-wave .tribute:nth-child(4){margin-top:0;}}
 
 /* ============ CONVENIOS ============ */
 .convenios-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
