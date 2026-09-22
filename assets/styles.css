@@ -281,13 +281,13 @@ section{position:relative;}
 
 /* ============ ANTES · DURANTE · PARA SIEMPRE ============ */
 .moments{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
-.moments::before{content:'';position:absolute;top:26px;left:8%;right:8%;height:1px;background:repeating-linear-gradient(90deg,var(--border) 0 8px,transparent 8px 16px);}
+.moments::before{content:'';position:absolute;top:6px;left:8%;right:8%;height:1px;background:repeating-linear-gradient(90deg,var(--border) 0 8px,transparent 8px 16px);}
 .moment{position:relative;padding:0 22px 0 0;}
 .moment + .moment{padding-left:22px;}
-.moment-mark{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:#fff;box-shadow:var(--shadow-1);position:relative;z-index:1;margin-bottom:22px;}
-.moment:nth-child(1) .moment-mark{background:var(--social-2);}
-.moment:nth-child(2) .moment-mark{background:var(--sepelios);}
-.moment:nth-child(3) .moment-mark{background:var(--memorial-2);}
+.m-dot{display:block;width:12px;height:12px;border-radius:50%;box-shadow:var(--shadow-1);position:relative;z-index:1;margin-bottom:16px;}
+.moment:nth-child(1) .m-dot{background:var(--social-2);}
+.moment:nth-child(2) .m-dot{background:var(--sepelios);}
+.moment:nth-child(3) .m-dot{background:var(--memorial-2);}
 .moment .m-word{font-family:var(--font-display);font-style:italic;font-size:1.5rem;color:var(--ink);}
 .moment .m-tag{display:block;margin-top:2px;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
 .moment p{margin-top:14px;color:var(--ink-soft);font-size:.96rem;max-width:32ch;}
