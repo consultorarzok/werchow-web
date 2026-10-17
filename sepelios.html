@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Werchow Sepelios en Jujuy: guardia 24 horas, qué hacer ante un fallecimiento, asistencia de sepelio integral con sala velatoria, traslados y trámites, y la Sala de Sepelios de Independencia 1185.">
+<meta property="og:title" content="Sepelios — Werchow">
+<meta property="og:description" content="Werchow Sepelios en Jujuy: guardia 24 horas, qué hacer ante un fallecimiento, asistencia de sepelio integral con sala velatoria, traslados y trámites, y la Sala de Sepelios de Independencia 1185.">
+<meta property="og:type" content="website">
+<title>Sepelios — Werchow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="assets/fonts/Larken-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<script>
+// Se aplica antes del resto para no mostrar el tema equivocado ni un instante.
+(function(){
+  try{
+    var saved = localStorage.getItem('werchow-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  }catch(e){}
+
+  // Revelado al scroll: se marca el documento ANTES del primer pintado para que no
+  // haya parpadeo. Si site.js no llegara a correr, el timeout devuelve todo a la vista.
+  try{
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window){
+      var d = document.documentElement;
+      d.classList.add('js-reveal');
+      setTimeout(function(){
+        if (!d.hasAttribute('data-reveal-ready')) d.classList.remove('js-reveal');
+      }, 2500);
+    }
+  }catch(e){}
+})();
+</script>
+
+<!-- ============ PROGRESS BAR ============ -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html" aria-label="Werchow — inicio">
+      <img class="logo-mark logo-mark-light" alt="" src="data:image/png;base64,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">
+      <img class="logo-mark logo-mark-dark" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABJCAYAAAD2QuLaAAAHC0lEQVR4nO2dzXnbRhCGX/m4FytowHQFZiowXUHUgdmB0YHXHSAVhO5ArsBUBaErCFlA+EgH46ocsJApCj+LmVkAVvydJJAzO8DsuwD3Dxffv/+7BAqG6xrYOJfdCmxbVZbHBbARmG6Bwiqesjx6YDXQ7Nq5rLAo/1xleVwBOXA5wGx7cX9/T1ke98ArQbnfgFWCJG+Bt1PFU5bHa+APgelr57K9puwmleWxAD4ITF+/CH94YdlvqGqVtbzQ7g2y1uhBgRRJcj8nSu4SWXI/O5ftL+7v72tHe2QU3wGLGVEMCpKE5Sa5Bop4IFyDFycHvDCGl8yLYrFtoFdyMc3u/adSxPPQmjwQHBzueR4Ui+IRnv/c6H0Uz4uzD70wllQUb4R2g+Mpy+MaWeVORe8VBq3JI4KD4z3zoniUeITlHIBlogRL4nlyzucEg47iK6Ftl7zQLpri8JtXUol8ouSuMWpNnhAcCtgLCzg4ly0Edp1KSXFZHi+BPVWFGKJU53oJ7DB6FmgiGOTUvAq1z1peaBdDcc7w5ILuKb9LObLKnDdV5EaC4f9B8UzpNY2njWCQ9wjNkeJFy2cFMnrXwlj6lGPcmnQRfImsNsG8KP7iXHbV4GsB/CMI48a5bCWw61SIZ4dxa9JKcGjSioGF1ZoTxbmhL41djF/z1qSVYHgWFH9yLvMNPpbA34LiU9KbpDXpugf/7BTf0R572/E+5UK7PvlUdp0JDiqoLpZEa6Fdq5zLNlQ9SH1q/Nmg7MDfCew6FeJ5LzC9cS7b9n2pN8FKit+GE7CW7/n8JlQEia20TKmkfqPsYggGHcVRgQxRBMWNZSo68FMN5q+Qx7ON+WJUgn8yirtOvjAuSyup32i7WIJhnhSfx3PXVpaiA/9TInrXjNCaRCd4phQX5/93nLwX+O96EtfKj2E3hGCYGcU8jufQ9JsXVMOBqQbz14zUmgxK8NwoPosnb/pO6Kxp/KxHSegN8XiBqSieoQTDPCn+4lx23fJ5jrADPwW9yIcDRa1JZ1dlm0KT93GwYaUkk8Ob9IyGA8XToSQEg67p8grboSqY32C+JB7xs4CIYICyPG6QdbHBCBQrOvBT0bsgwXBgn6QEwwQT00cqQ2oX43f01kRMMMyX4mc0HKhuTTQEw3wpLoR23jCGUxVCO68tWJXgQOBnofn7ULNNpejAh+oJ11SK1YpdI2LR0hIM86NY41Nja+1TavdIqntwrbnci0MX4F9KN5bxrICvAlOzZwELgkFX29ZGMYBNrbfwUauYOgaTBCvvxXno4VFJ0YF/LpNngxDPG4Fp1FScWFkRDBMuPVV04LfJwpfUx9qg7AeZJXhiinNs6K2loljRmphPDbIkGCagWDEc2CcvMQrxFGOW2SXTBE9EcY6sC7BP70eOJ8nEPmuCYUSKQzM6yGagBvlWTi6Q2PXKPMEjU+xJQ2+tofHkjDwc2KcUBMMIm6cEeqWdK7EaGo9kEkTKiX1pEhx+x90IzdeR3/NC/0MVS7EX+k9GL6QjGBJuA6FYzyNRL8WK1iQpvZAwwUqKvfLzNsUsWmtSH8WF1G9KeiEtwZCAYsVw4IHh2wPXaqVYMRx4sBgO7FPSBCeiuO14n9aJnvCl8UjtBik1wWBIsWI9z2kHvjSel5w9AGpakzHohRESbEzx+f+D/WgpPvu/EPpZC+0GawyCwYBiRQd+0/CbVTyTDwf2yWRGR4wUWwMfgCWy7f0Afm/aekETj3PZQrEx27sxEzwWwaCghqpnTDr8trOOJ1QOq9YkqUYjGNTb9EvUOb9qgnhGpRfGJRjGXZcUM/zmR4ijVvS+GpYalWAYlZqo2ZFzi8daYxMM41AzZCW8TxhHrSSD+TEanWBQbQ0co8FraUegeBJ6YRqCIfG6JEEHvk8QR60ku/TEahKCIRnF4pXwiShO9sqdWE1FMCRaB6S4mN4wjlqWL8tcluVxNXQi4GQEgznF6rW0xhSr6T2Z0P8hHDpQXa8D1ejYts/HlATD81mN0CQVvSG5W6ox7HfOZRehAv9G1bP3NWa75kkJBjOKzfbVMKLYojUpqN5DtaSqeEvgluodxZuyPOb18a6HuKkJhvmRZ+HLwscHfkzpWVItTt8CRVker1z1Iuo9PUOPkyd4wAbfbTJZCV8r3Ne+KVyoB/PDHiNQJbTWPvx/y4+3yGypkt+qyRMc5CeybVOhsPUG5V/Cw1aNtT5SbSyz58e881t6Xvk+iwQrKE4y/BbikVBs0prU53S2t+cnqpkoi5NjKx5T/kSzSHDQEvgz8rt3VCd8lSoYqosXGw/Yx3PD09YgpyLWn8wH23Y5mfwp+peadbIz3jVn86dDcq+BjXNZ3uXnV4JnrPCwtaFqlndU998l1VywxndCnetXgn8CBWKXVM3zDtjFDmD8B9kCt0DbdRt+AAAAAElFTkSuQmCC">
+      <span class="logo-word">werchow</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sepelios.html" aria-current="page">Sepelios</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="convenios.html">Convenios</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="homenajes.html">Homenajes</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a class="mobile-call" href="tel:+543884225555">Llamar ahora →</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="tel:+543884225555">Llamar ahora</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" type="button">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ WHATSAPP FLOTANTE (agente IA Werchow) ============ -->
+<a href="https://wa.me/5493884300930?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20de%20Werchow" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Hablar por WhatsApp con el asistente de Werchow" title="Hablar por WhatsApp con el asistente de Werchow">
+  <span class="wa-ping" aria-hidden="true"></span>
+  <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12.001 2c-5.523 0-10 4.478-10 10 0 1.766.462 3.427 1.271 4.87L2 22l5.278-1.384A9.94 9.94 0 0 0 12 22c5.523 0 10-4.478 10-10S17.523 2 12.001 2zm0 18.19a8.17 8.17 0 0 1-4.166-1.14l-.299-.177-3.101.813.83-3.024-.196-.312A8.157 8.157 0 0 1 3.826 12c0-4.522 3.677-8.19 8.19-8.19S20.19 7.478 20.19 12s-3.677 8.19-8.189 8.19z"/>
+  </svg>
+</a>
+
+
+<div class="page-meta">
+  <div class="container page-meta-inner">
+    <span class="pm-num">02</span>
+    <span class="pm-rest">
+      <span class="pm-title">Sepelios</span>
+      <span class="pm-right">Werchow</span>
+    </span>
+  </div>
+</div>
+
+<section class="sepelio-band sp-hero">
+  <div class="sepelio-media" aria-hidden="true">
+    <div class="sepelio-bg"></div>
+    <!-- Mismo video que la banda de Inicio (assets/sepelio-loop.mp4). Si no existe, queda el degradé verde. -->
+    <video class="sepelio-video" id="sepelioVideo" autoplay muted loop playsinline preload="metadata">
+      <source src="assets/sepelio-loop.mp4" type="video/mp4">
+    </video>
+    <div class="sepelio-scrim"></div>
+  </div>
+  <div class="deco-field" aria-hidden="true">
+    <div class="brand-el ring-memorial on-dark spin" style="width:560px;height:560px;top:-240px;right:-180px;opacity:.4;"></div>
+  </div>
+  <div class="container sepelio-inner">
+    <p class="eyebrow sepelio-eyebrow"><span class="dot"></span>Werchow Sepelios · más de 50 años</p>
+    <h1>Hacer más fáciles los momentos <em>más difíciles</em>.</h1>
+    <p class="sepelio-lead">Una empresa jujeña que acompaña a las familias con un trato humano, cálido y cercano. Atención fúnebre contenida y profesional, con guardia las 24 horas, todos los días del año.</p>
+    <div class="sepelio-actions">
+      <a class="btn btn-light" href="https://wa.me/5493884176523" target="_blank" rel="noopener">WhatsApp de guardia 24 hs</a>
+      <a class="btn btn-ghost-light" href="tel:+543884177373">Llamar a la guardia: 388 417-7373</a>
+    </div>
+  </div>
+</section>
+
+<section class="section sp-section" id="fallecimiento">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow sp-eyebrow">Ante un fallecimiento</p>
+      <h2>Qué hacer, paso a paso</h2>
+      <p>En un momento así no hace falta saber todo. Con el primer llamado, nuestro equipo de guardia le indica cada paso.</p>
+    </div>
+    <ol class="sp-steps">
+      <li data-reveal>
+        <span class="sp-step-num">1</span>
+        <h3>Comuníquese con la guardia</h3>
+        <p>Atendemos las 24 horas, todos los días del año.</p>
+        <div class="sp-step-links">
+          <a href="https://wa.me/5493884176523" target="_blank" rel="noopener">WhatsApp de guardia ↗</a>
+          <a href="tel:+543884177373">388 417-7373</a>
+        </div>
+      </li>
+      <li data-reveal>
+        <span class="sp-step-num">2</span>
+        <h3>Tenga a mano la documentación</h3>
+        <ul class="sp-docs">
+          <li>Certificado de defunción</li>
+          <li>DNI de la persona fallecida</li>
+        </ul>
+      </li>
+      <li data-reveal>
+        <span class="sp-step-num">3</span>
+        <h3>Werchow se ocupa del resto</h3>
+        <p>Traslados, sala velatoria y los trámites en el Registro Civil, para que la familia pueda dedicarse a despedir.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt sp-section" id="incluye">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow sp-eyebrow">Asistencia de sepelio integral</p>
+      <h2>Lo que incluye</h2>
+      <p>Todos los planes de Werchow incluyen la asistencia de sepelio integral.</p>
+    </div>
+    <div class="sp-include">
+      <div class="sp-inc" data-reveal>
+        <span class="sp-inc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.4-9.5 9-9.5 9Z" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <h3>Servicio de sepelio completo</h3>
+        <p>Atención fúnebre profesional, contenida y humana, de principio a fin.</p>
+      </div>
+      <div class="sp-inc" data-reveal>
+        <span class="sp-inc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3.5 20.5h17M5 20.5V10l7-5.5 7 5.5v10.5M9.5 20.5v-6h5v6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+        <h3>Sala velatoria</h3>
+        <p>Nuestra Sala de Sepelios en Independencia 1185, San Salvador de Jujuy.</p>
+      </div>
+      <div class="sp-inc" data-reveal>
+        <span class="sp-inc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10.5A.5.5 0 0 1 6.5 20V4a.5.5 0 0 1 .5-.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M13.5 3.5V8h4.5M9.5 12.5h5M9.5 16h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        <h3>Trámites en el Registro Civil</h3>
+        <p>Los gestiona Werchow, para que la familia no tenga que ocuparse.</p>
+      </div>
+      <div class="sp-inc" data-reveal>
+        <span class="sp-inc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M2.5 15.5V8a1 1 0 0 1 1-1h10v8.5M13.5 10h4l3 3.5v2h-7" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="7" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <h3>Traslados</h3>
+        <p>Incluidos en todos los planes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section sp-section" id="sala">
+  <div class="container sp-sala">
+    <!-- Foto de la Sala de Sepelios: guardarla como assets/sepelios/sala.jpg (horizontal 4:3).
+         Si no existe, queda el degradé verde con el ícono. -->
+    <div class="sp-sala-photo" data-img="assets/sepelios/sala.jpg" data-reveal>
+      <span class="sp-sala-ph"><svg viewBox="0 0 24 24" fill="none"><path d="M3.5 20.5h17M5 20.5V10l7-5.5 7 5.5v10.5M9.5 20.5v-6h5v6" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+    </div>
+    <div class="sp-sala-info" data-reveal>
+      <p class="eyebrow sp-eyebrow">Sala de Sepelios</p>
+      <h2>Un espacio para despedir con dignidad</h2>
+      <dl class="sp-data">
+        <div><dt>Dirección</dt><dd>Independencia 1185, San Salvador de Jujuy · <a href="https://maps.app.goo.gl/ge5EVTXvS5e5iZSx8" target="_blank" rel="noopener">ver en el mapa ↗</a></dd></div>
+        <div><dt>Guardia 24 hs</dt><dd><a href="https://wa.me/5493884176523" target="_blank" rel="noopener">WhatsApp ↗</a> · <a href="tel:+543884177373">388 417-7373</a></dd></div>
+        <div><dt>Teléfono de la sala</dt><dd><a href="tel:+543884228433">388 422-8433</a></dd></div>
+        <div><dt>Correo</dt><dd><a href="mailto:sepelios@werchow.com">sepelios@werchow.com</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt sp-section" id="planes-sepelio">
+  <div class="container sp-planes">
+    <div data-reveal>
+      <p class="eyebrow sp-eyebrow">Planes</p>
+      <h2>Anticiparse da tranquilidad</h2>
+      <p class="sp-muted">Un asesor le explica en detalle los planes, los alcances y los valores, según su grupo familiar.</p>
+      <div class="sepelio-actions">
+        <a class="btn sp-btn" href="https://wa.me/5493884044415?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20de%20sepelio" target="_blank" rel="noopener">Hablar con un asesor</a>
+        <a class="btn btn-outline" href="planes.html">Ver planes →</a>
+      </div>
+    </div>
+    <ul class="sp-ages" data-reveal>
+      <li><strong>Hasta 65 años</strong><span>para asociarse como titular</span></li>
+      <li><strong>66 a 75 años</strong><span>como adherente al grupo familiar</span></li>
+      <li><strong>76 años o más</strong><span>el asesor le indica el plan que corresponde</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sp-homenaje">
+  <div class="container sp-homenaje-inner" data-reveal>
+    <div>
+      <p class="eyebrow sepelio-eyebrow"><span class="dot"></span>Homenajes virtuales</p>
+      <h2>Rendir homenaje a la vida</h2>
+      <p>Un espacio para recordar a quienes ya no están, con su nombre, su fecha y su foto.</p>
+    </div>
+    <a class="btn btn-light" href="homenajes.html">Ver homenajes →</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="deco-field" aria-hidden="true">
+    <div class="brand-el ring-memorial on-dark spin" style="width:460px;height:460px;top:-200px;right:-120px;"></div>
+  </div>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html" style="color:#F5F4E8;">
+        <img alt="" style="height:30px;width:auto;" src="data:image/png;base64,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">
+        <span class="logo-word">werchow</span>
+      </a>
+      <p>Sepelios, Memorial y Salas, y Servicios Sociales — acompañando familias en Jujuy desde hace más de cinco décadas.</p>
+      <p class="footer-tagline">Nuestra vocación es estar</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/5493884176523" target="_blank" rel="noopener">Guardia de sepelios, 24 hs</a></li>
+        <li><a href="tel:+543884225555">+54 388 422-5555</a></li>
+        <li><a href="https://wa.me/5493884300930" target="_blank" rel="noopener">WhatsApp del asistente</a></li>
+        <li><a href="mailto:sepelios@werchow.com">sepelios@werchow.com</a></li>
+        <li><span class="muted">Lavalle 123, San Salvador de Jujuy</span></li>
+        <li><a href="contacto.html">Todos los canales →</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Sucursales</h4>
+      <ul>
+        <li><span class="muted">Casa Central — Lavalle 123, San Salvador</span></li>
+        <li><span class="muted">Palpalá — O'Higgins 62</span></li>
+        <li><span class="muted">Perico — Av. Éxodo esq. 25 de Mayo 268</span></li>
+        <li><span class="muted">El Carmen — San Martín esq. F. Pérez Frías</span></li>
+        <li><span class="muted">San Pedro — Sarmiento 542</span></li>
+        <li><span class="muted">Sala de Sepelios — Independencia 1185</span></li>
+        <li><span class="muted">Secretaría Otero — Otero 464</span></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Secciones</h4>
+      <ul>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="resenas.html">Reseñas</a></li>
+        <li><a href="homenajes.html">Homenajes virtuales</a></li>
+        <li><a href="convenios.html">Convenios</a></li>
+        <li><a href="sepelios.html">Sepelios</a></li>
+        <li><a href="planes.html">Planes Sepelios</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Werchow. Todos los derechos reservados.</span>
+    <a href="https://sepelios.werchow.com/" target="_blank" rel="noopener">sepelios.werchow.com</a>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script src="assets/media.js"></script>
+
+</body>
+</html>

@@ -26,12 +26,13 @@ HREFS = {
     'HOMENAJES': 'homenajes.html',
     'CONVENIOS': 'convenios.html',
     'PLANES': 'planes.html',
+    'SEPELIOS': 'sepelios.html',
     'CONTACTO': 'contacto.html',
 }
 
-NAV_KEYS = ['INICIO', 'NOSOTROS', 'CONVENIOS', 'PLANES', 'HOMENAJES', 'CONTACTO']
+NAV_KEYS = ['INICIO', 'SEPELIOS', 'NOSOTROS', 'CONVENIOS', 'PLANES', 'HOMENAJES', 'CONTACTO']
 KEY_TO_HREF_KEY = {
-    'INICIO': 'HOME', 'NOSOTROS': 'NOSOTROS', 'CONVENIOS': 'CONVENIOS',
+    'INICIO': 'HOME', 'SEPELIOS': 'SEPELIOS', 'NOSOTROS': 'NOSOTROS', 'CONVENIOS': 'CONVENIOS',
     'PLANES': 'PLANES', 'HOMENAJES': 'HOMENAJES', 'CONTACTO': 'CONTACTO',
 }
 
@@ -123,6 +124,7 @@ def main():
     homenajes = read('homenajes')
     convenios = read('convenios')
     planes = read('planes')
+    sepelios = read('sepelios')
     contacto = read('contacto')
 
     pages = {
@@ -131,44 +133,51 @@ def main():
             title='Werchow',
             description='Werchow — Sepelios, Memorial y Salas y Servicios Sociales en Jujuy: servicio de sepelio con guardia 24 horas, beneficios para afiliados y homenajes. Nuestra vocación es estar.',
             main='\n\n'.join([hero, sepelio_home, beneficios_home, recomendaciones_home, ribbon, moments, marquee]),
-            extra_scripts='<script src="assets/hero.js"></script>\n',
+            extra_scripts='<script src="assets/hero.js"></script>\n<script src="assets/media.js"></script>\n',
+        ),
+        'sepelios.html': dict(
+            active='SEPELIOS',
+            title='Sepelios — Werchow',
+            description='Werchow Sepelios en Jujuy: guardia 24 horas, qué hacer ante un fallecimiento, asistencia de sepelio integral con sala velatoria, traslados y trámites, y la Sala de Sepelios de Independencia 1185.',
+            main=page_meta('02', 'Sepelios') + sepelios,
+            extra_scripts='<script src="assets/media.js"></script>\n',
         ),
         'nosotros.html': dict(
             active='NOSOTROS',
             title='Nosotros — Werchow',
             description='Quiénes somos en Werchow: más de cinco décadas acompañando familias en Jujuy con transparencia, cercanía y profesionalismo.',
-            main=page_meta('02', 'Nosotros') + nosotros,
+            main=page_meta('03', 'Nosotros') + nosotros,
         ),
         'resenas.html': dict(
             active='',
             title='Reseñas — Werchow',
             description='Familias que ya confiaron en Werchow — reseñas reales en Google, con nombre, tal cual figuran en nuestra ficha.',
-            main=page_meta('07', 'Reseñas') + testimonios,
+            main=page_meta('08', 'Reseñas') + testimonios,
         ),
         'homenajes.html': dict(
             active='HOMENAJES',
             title='Homenajes virtuales — Werchow',
             description='Un espacio para recordar: cada familia puede compartir un homenaje virtual a quienes ya no están.',
-            main=page_meta('05', 'Homenajes virtuales') + homenajes,
+            main=page_meta('06', 'Homenajes virtuales') + homenajes,
             extra_scripts='<script src="assets/homenajes.js"></script>\n',
         ),
         'convenios.html': dict(
             active='CONVENIOS',
             title='Convenios — Werchow',
             description='Beneficios pensados para cada familia: convenios médicos, descuentos en farmacias y ópticas, becas, obsequios de primer grado y de bodas, bonificaciones por jubilación, sorteos y cartilla de prestadores en Jujuy.',
-            main=page_meta('03', 'Convenios') + convenios,
+            main=page_meta('04', 'Convenios') + convenios,
         ),
         'planes.html': dict(
             active='PLANES',
             title='Planes Sepelios — Werchow',
             description='Planes de sepelio de Werchow en Jujuy: qué incluye la asistencia de sepelio integral, edades de adhesión y cómo hablar con un asesor.',
-            main=page_meta('04', 'Planes Sepelios') + planes,
+            main=page_meta('05', 'Planes Sepelios') + planes,
         ),
         'contacto.html': dict(
             active='CONTACTO',
             title='Contacto — Werchow',
             description='Contacto de Werchow: guardia de sepelios 24 horas, teléfonos, WhatsApp de adhesiones y cobranzas, y las direcciones y horarios de las cinco sucursales en Jujuy.',
-            main=page_meta('06', 'Contacto') + contacto,
+            main=page_meta('07', 'Contacto') + contacto,
         ),
     }
 
