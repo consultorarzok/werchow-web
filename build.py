@@ -112,6 +112,9 @@ def assemble(active_key, title, description, main_html, extra_scripts=''):
 
 def main():
     hero = read('hero')
+    sepelio_home = read('sepelio_home')
+    beneficios_home = read('beneficios_home')
+    recomendaciones_home = read('recomendaciones_home')
     ribbon = read('ribbon')
     moments = read('moments')
     marquee = read('marquee')
@@ -126,8 +129,8 @@ def main():
         'index.html': dict(
             active='INICIO',
             title='Werchow',
-            description='Werchow — Sepelios, Memorial y Salas y Servicios Sociales en Jujuy. Nuestra vocación es estar.',
-            main=hero + '\n\n' + ribbon + '\n\n' + moments + '\n\n' + marquee,
+            description='Werchow — Sepelios, Memorial y Salas y Servicios Sociales en Jujuy: servicio de sepelio con guardia 24 horas, beneficios para afiliados y homenajes. Nuestra vocación es estar.',
+            main='\n\n'.join([hero, sepelio_home, beneficios_home, recomendaciones_home, ribbon, moments, marquee]),
             extra_scripts='<script src="assets/hero.js"></script>\n',
         ),
         'nosotros.html': dict(
@@ -152,7 +155,7 @@ def main():
         'convenios.html': dict(
             active='CONVENIOS',
             title='Convenios — Werchow',
-            description='Beneficios pensados para cada familia: convenios médicos, descuentos en farmacias y ópticas, cartilla de prestadores y planes de sepelios en Jujuy.',
+            description='Beneficios pensados para cada familia: convenios médicos, descuentos en farmacias y ópticas, becas, obsequios de primer grado y de bodas, bonificaciones por jubilación, sorteos y cartilla de prestadores en Jujuy.',
             main=page_meta('03', 'Convenios') + convenios,
         ),
         'planes.html': dict(

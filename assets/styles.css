@@ -517,3 +517,76 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
 .age-txt{display:block;margin-top:6px;font-size:.88rem;color:var(--ink-soft);}
 .ages-foot{margin-top:18px;font-size:.85rem;color:var(--ink-faint);max-width:62ch;}
 @media (max-width:760px){.ages{grid-template-columns:1fr;}.editorial-list li{flex-direction:column;align-items:flex-start;gap:6px;}}
+
+/* ============ INICIO · SERVICIO DE SEPELIO ============
+   Banda a todo el ancho en el verde de marca (pedido del cliente para Sepelio).
+   Colores fijos, no tokens: el fondo es siempre oscuro, en los dos temas. */
+.sepelio-band{position:relative;overflow:hidden;color:#F4F4EC;min-height:78vh;min-height:78svh;display:flex;align-items:center;padding:96px 0;isolation:isolate;}
+.sepelio-media{position:absolute;inset:0;z-index:-1;}
+.sepelio-bg,.sepelio-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.sepelio-bg{background:url('brand/glow-memorial.webp') 78% 30%/70% no-repeat,radial-gradient(120% 90% at 80% 20%,#777B3B 0%,#3B3E1A 62%,#262812 100%);animation:heroBreathe 22s ease-in-out infinite alternate;}
+.sepelio-video{opacity:0;transition:opacity .6s ease;}
+.sepelio-video.is-ready{opacity:1;}
+.sepelio-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(38,40,18,.86) 0%,rgba(38,40,18,.55) 55%,rgba(38,40,18,.25) 100%);}
+.sepelio-inner{position:relative;z-index:2;width:100%;}
+.sepelio-eyebrow{display:inline-flex;align-items:center;gap:10px;color:#C5D493;}
+.sepelio-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#C5D493;}
+.sepelio-band h2{font-size:clamp(2.2rem,5.4vw,4rem);color:#fff;margin-top:14px;max-width:14ch;line-height:1.04;}
+.sepelio-band h2 em{color:#C5D493;}
+.sepelio-lead{color:#E6E8D2;font-size:1.06rem;max-width:46ch;margin-top:18px;}
+.sepelio-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
+.btn-light{background:#F4F4EC;color:#262812;box-shadow:0 8px 24px -10px rgba(0,0,0,.5);}
+.btn-ghost-light{background:rgba(244,244,236,.08);border-color:rgba(244,244,236,.45);color:#F4F4EC;}
+.btn-ghost-light:hover{border-color:#F4F4EC;}
+.sepelio-facts{list-style:none;padding:0;margin:52px 0 0;display:grid;grid-template-columns:repeat(3,max-content);gap:0;border-top:1px solid rgba(197,212,147,.35);}
+.sepelio-facts li{padding:18px 40px 0 0;margin-right:40px;border-right:1px solid rgba(197,212,147,.25);}
+.sepelio-facts li:last-child{border-right:0;margin-right:0;}
+.sepelio-facts strong{display:block;font-family:var(--font-display);font-weight:500;font-size:1.3rem;color:#fff;}
+.sepelio-facts strong a{color:inherit;text-decoration:none;}
+.sepelio-facts span{font-size:.84rem;color:#C9CDB0;}
+@media (prefers-reduced-motion:reduce){.sepelio-bg{animation:none;}}
+@media (max-width:760px){
+  .sepelio-band{min-height:0;padding:72px 0 64px;}
+  .sepelio-band .deco-field{display:none;}
+  .sepelio-scrim{background:linear-gradient(180deg,rgba(38,40,18,.62) 0%,rgba(38,40,18,.88) 100%);}
+  .sepelio-facts{grid-template-columns:1fr;margin-top:40px;}
+  .sepelio-facts li{border-right:0;margin-right:0;padding:14px 0;border-bottom:1px solid rgba(197,212,147,.2);}
+  .sepelio-facts li:last-child{border-bottom:0;}
+}
+
+/* ============ INICIO · BENEFICIOS (tarjetas con imagen) ============ */
+.bnf-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
+.bnf-card{display:flex;flex-direction:column;gap:14px;text-decoration:none;color:var(--ink);}
+.bnf-media{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;box-shadow:var(--shadow-1);transition:transform .45s ease, box-shadow .45s ease;}
+.bnf-media.tone-inst{background-image:radial-gradient(110% 80% at 70% 15%,#2F4177 0%,#1D2646 55%,#11142A 100%);}
+.bnf-media.tone-sepelios{background-image:radial-gradient(110% 80% at 70% 15%,#2568C5 0%,#133D7D 55%,#072452 100%);}
+.bnf-media.tone-social{background-image:radial-gradient(110% 80% at 70% 15%,#96BFD8 0%,#3E84AB 55%,#124964 100%);}
+.bnf-media.tone-memorial{background-image:radial-gradient(110% 80% at 70% 15%,#C5D493 0%,#777B3B 55%,#3B3E1A 100%);}
+.bnf-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,20,42,0) 55%,rgba(17,20,42,.35) 100%);pointer-events:none;}
+.bnf-frame{position:absolute;inset:12px;border:1px solid rgba(255,255,255,.55);border-radius:12px;pointer-events:none;z-index:1;}
+.bnf-icon{width:34%;max-width:86px;color:rgba(255,255,255,.92);position:relative;z-index:1;}
+.bnf-icon svg{width:100%;height:auto;display:block;}
+.bnf-media.has-img .bnf-icon{display:none;}
+.bnf-label{font-family:var(--font-display);font-size:1.12rem;line-height:1.2;padding:0 4px;}
+.bnf-card:hover .bnf-media{transform:translateY(-4px);box-shadow:var(--shadow-2);}
+.bnf-card:focus-visible{outline:none;}
+.bnf-card:focus-visible .bnf-media{outline:2px solid var(--memorial);outline-offset:3px;}
+@media (max-width:940px){.bnf-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}}
+@media (max-width:380px){.bnf-grid{gap:12px;}.bnf-label{font-size:.98rem;}}
+
+/* ============ INICIO · RECOMENDACIONES ============ */
+#recomendaciones{position:relative;overflow:hidden;}
+#recomendaciones .container{position:relative;z-index:1;}
+.reco-scores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-bottom:28px;}
+.reco-score{display:flex;align-items:center;gap:18px;padding:22px 24px;background:var(--surface);border:1px solid var(--border-soft);border-radius:16px;box-shadow:var(--shadow-1);}
+.reco-score .num{font-family:var(--font-display);font-size:2.8rem;line-height:1;color:var(--ink);}
+.reco-score-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;}
+.reco-score-body strong{font-size:.95rem;}
+.reco-score-body span{font-size:.84rem;color:var(--ink-soft);}
+.reco-score .info-link{flex:none;}
+@media (max-width:760px){.reco-scores{grid-template-columns:1fr;}.reco-score{display:grid;grid-template-columns:auto minmax(0,1fr);row-gap:14px;}.reco-score .info-link{grid-column:1/-1;justify-self:start;}}
+
+/* ============ CONVENIOS · anclas de las tarjetas de Inicio ============ */
+.benefit-list li[id]{scroll-margin-top:120px;}
+.benefit-list li:target{outline:2px solid var(--social-3);outline-offset:6px;border-radius:12px;}
+.benefit-note{color:var(--ink-faint);font-size:.88rem;margin-top:22px;}

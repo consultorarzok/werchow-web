@@ -95,3 +95,24 @@
     });
   });
 })();
+
+(function(){
+  // Video de la banda de Sepelio: sólo aparece si assets/sepelio-loop.mp4 existe y carga;
+  // si no, queda el degradé verde de marca de fondo.
+  var v = document.getElementById('sepelioVideo');
+  if (v) {
+    v.addEventListener('canplay', function(){ v.classList.add('is-ready'); });
+    v.addEventListener('error', function(){ v.classList.remove('is-ready'); }, true);
+  }
+
+  // Tarjetas de beneficios: si la foto de la tarjeta existe, reemplaza al degradé con ícono.
+  document.querySelectorAll('.bnf-media[data-img]').forEach(function(el){
+    var src = el.getAttribute('data-img');
+    var img = new Image();
+    img.onload = function(){
+      el.style.backgroundImage = 'url("' + src + '")';
+      el.classList.add('has-img');
+    };
+    img.src = src;
+  });
+})();
