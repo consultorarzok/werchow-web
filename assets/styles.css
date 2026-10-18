@@ -452,7 +452,7 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
 .footer-brand .logo-word{color:#F5F4E8;}
 .footer-brand p{color:#C7CBB4;margin-top:14px;font-size:.88rem;max-width:34ch;}
 .footer-tagline{margin-top:20px;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:#B0B594;}
-.footer-col h4{font-family:var(--font-body);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#B7BC9C;margin-bottom:14px;}
+.footer-col h2,.footer-col h4{font-family:var(--font-body);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#B7BC9C;margin-bottom:14px;}
 .footer-col ul{list-style:none;padding:0;margin:0;display:grid;gap:4px;}
 .footer-col a{color:#E9EAD9;text-decoration:none;font-size:.9rem;display:inline-block;padding:4px 0;}
 .footer-col a:hover{color:#fff;text-decoration:underline;}
