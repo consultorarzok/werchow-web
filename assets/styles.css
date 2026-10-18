@@ -288,6 +288,8 @@ section{position:relative;}
 .section-head{max-width:640px;margin:0 0 48px;}
 .section-head .eyebrow{color:var(--memorial-ink);}
 .section-head h1,.section-head h2{font-size:clamp(1.8rem,3.2vw,2.5rem);margin-top:10px;}
+/* Sin etiqueta arriba, el título abre el bloque: sin el margen que lo separaba de ella */
+.section-head > h1:first-child,.section-head > h2:first-child{margin-top:0;}
 .section-head p{color:var(--ink-soft);margin-top:14px;font-size:.98rem;max-width:52ch;}
 .section-alt{background:var(--bg-alt);}
 

@@ -40,7 +40,7 @@
   // selector interactivo de unidades (hero) — cada una con su propio video de fondo
   var UNITS = {
     memorial: {
-      eyebrow: 'Memorial y Salas — nueva propuesta',
+      eyebrow: 'Memorial y Salas · nueva propuesta',
       title: 'Presente pleno. <em>Futuro cuidado.</em>',
       lead: 'Con vistas abiertas al parque, ofrecemos espacios solemnes y cálidos para que las familias puedan despedir y rendir homenaje a sus seres queridos con la dignidad que merecen.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Memorial%20y%20Salas',
@@ -49,7 +49,7 @@
       fcStat: '+50 años', fcSub: 'acompañando familias en Jujuy'
     },
     sepelios: {
-      eyebrow: 'Sepelios — desde hace 50 años',
+      eyebrow: 'Sepelios · desde hace 50 años',
       title: 'Atención fúnebre <em>humana</em>.',
       lead: 'Contenida y profesional, con planes adaptados a cada necesidad. Anticiparse es la mejor forma de atravesar los momentos difíciles con tranquilidad.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Sepelios',
@@ -58,13 +58,13 @@
       fcStat: 'Guardia 24 hs.', fcSub: 'todos los días del año'
     },
     social: {
-      eyebrow: 'Servicios sociales — red de beneficios',
+      eyebrow: 'Servicios sociales · red de beneficios',
       title: 'Acompañar el <em>día a día</em>.',
       lead: 'Descuentos en farmacias, becas estudiantiles y un sistema de asistencia en salud que respalda a cada familia cuando lo necesita.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Servicios%20Sociales',
       video: 'assets/hero-loop-social.mp4',
       fcIcon: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>',
-      fcStat: '75%', fcSub: 'no planifica el futuro — por eso acompañamos antes'
+      fcStat: '75%', fcSub: 'no planifica el futuro: por eso acompañamos antes'
     }
   };
 
