@@ -3,10 +3,15 @@
     <div class="hero-kenburns"></div>
     <!-- Cada unidad tiene su propio video de fondo (assets/hero-loop-{unidad}.mp4, loop de ~20s — ver prompts de generación). El JS cambia el <source> al cambiar de pestaña. Si un video falta o no carga, esa pestaña cae sola al degradé animado de arriba. -->
     <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+      <source id="heroVideoSourceMobile" src="assets/hero-loop-memorial-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
       <source id="heroVideoSource" src="assets/hero-loop-memorial.mp4" type="video/mp4">
     </video>
     <div class="hero-scrim"></div>
   </div>
+  <button type="button" class="media-toggle" data-media-toggle aria-pressed="false" aria-label="Pausar el video de fondo" hidden>
+    <svg class="mt-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
+    <svg class="mt-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+  </button>
   <div class="container hero-content">
     <div class="switcher" id="unidades" role="tablist" aria-label="Elija una unidad de negocio">
       <button class="switch-tab is-active" type="button" data-unit="memorial" role="tab" aria-selected="true">Memorial y Salas</button>

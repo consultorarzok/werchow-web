@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 <script>
 // Se aplica antes del resto para no mostrar el tema equivocado ni un instante.
 (function(){
@@ -83,6 +84,7 @@
 </a>
 
 
+<main id="contenido" tabindex="-1">
 <div class="page-meta">
   <div class="container page-meta-inner">
     <span class="pm-num">02</span>
@@ -102,6 +104,10 @@
     </video>
     <div class="sepelio-scrim"></div>
   </div>
+  <button type="button" class="media-toggle" data-media-toggle aria-pressed="false" aria-label="Pausar el video de fondo" hidden>
+    <svg class="mt-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
+    <svg class="mt-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+  </button>
   <div class="deco-field" aria-hidden="true">
     <div class="brand-el ring-memorial on-dark spin" style="width:560px;height:560px;top:-240px;right:-180px;opacity:.4;"></div>
   </div>
@@ -232,6 +238,7 @@
   </div>
 </section>
 
+</main>
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="deco-field" aria-hidden="true">

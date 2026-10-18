@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 <script>
 // Se aplica antes del resto para no mostrar el tema equivocado ni un instante.
 (function(){
@@ -83,15 +84,21 @@
 </a>
 
 
+<main id="contenido" tabindex="-1">
 <section class="hero" id="inicio" data-active="memorial">
   <div class="hero-media" aria-hidden="true">
     <div class="hero-kenburns"></div>
     <!-- Cada unidad tiene su propio video de fondo (assets/hero-loop-{unidad}.mp4, loop de ~20s — ver prompts de generación). El JS cambia el <source> al cambiar de pestaña. Si un video falta o no carga, esa pestaña cae sola al degradé animado de arriba. -->
     <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+      <source id="heroVideoSourceMobile" src="assets/hero-loop-memorial-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
       <source id="heroVideoSource" src="assets/hero-loop-memorial.mp4" type="video/mp4">
     </video>
     <div class="hero-scrim"></div>
   </div>
+  <button type="button" class="media-toggle" data-media-toggle aria-pressed="false" aria-label="Pausar el video de fondo" hidden>
+    <svg class="mt-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
+    <svg class="mt-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+  </button>
   <div class="container hero-content">
     <div class="switcher" id="unidades" role="tablist" aria-label="Elija una unidad de negocio">
       <button class="switch-tab is-active" type="button" data-unit="memorial" role="tab" aria-selected="true">Memorial y Salas</button>
@@ -124,6 +131,10 @@
     </video>
     <div class="sepelio-scrim"></div>
   </div>
+  <button type="button" class="media-toggle" data-media-toggle aria-pressed="false" aria-label="Pausar el video de fondo" hidden>
+    <svg class="mt-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
+    <svg class="mt-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+  </button>
   <div class="deco-field" aria-hidden="true">
     <div class="brand-el ring-memorial on-dark spin" style="width:520px;height:520px;top:-230px;right:-160px;opacity:.45;"></div>
   </div>
@@ -167,7 +178,7 @@
 <section class="section beneficios-home" id="beneficios">
   <div class="container">
     <div class="section-head" data-reveal>
-      <p class="eyebrow" style="color:var(--social-2)">Beneficios para afiliados</p>
+      <p class="eyebrow" style="color:var(--social-ink)">Beneficios para afiliados</p>
       <h2>Beneficios para toda la familia</h2>
       <p>Werchow acompaña el día a día de sus afiliados con una red de beneficios. Toque cada uno para ver el detalle.</p>
     </div>
@@ -250,7 +261,7 @@
   </div>
   <div class="container">
     <div class="section-head" data-reveal>
-      <p class="eyebrow" style="color:var(--social-2)">Recomendaciones</p>
+      <p class="eyebrow" style="color:var(--social-ink)">Recomendaciones</p>
       <h2>Lo que dicen las familias</h2>
       <p>Reseñas reales de nuestros dos perfiles de Google, tal cual fueron escritas.</p>
     </div>
@@ -295,7 +306,7 @@
         <span class="testi-quote-mark">“</span>
         <p>El servicio para nuestro hijo fue muy emotivo y la empresa nos acompañó en cada detalle, nos brindaron tranquilidad en un momento de mucho dolor. Un agradecimiento al personal de Servicios Sociales Werchow.</p>
         <div class="testi-foot">
-          <div class="testi-avatar" style="background:var(--memorial-2);">P</div>
+          <div class="testi-avatar" style="background:#3B3E1A;">P</div>
           <div class="testi-who"><strong>Paula C.</strong><span>Sala de Sepelios · Hace 3 meses</span></div>
           <span class="g-badge"><span class="g-dot"></span>Google</span>
         </div>
@@ -304,7 +315,7 @@
         <span class="testi-quote-mark">“</span>
         <p>Recomiendo a esta empresa por su seriedad y eficacia en todos los lugares donde solicitás atención y por la amable atención de sus empleados.</p>
         <div class="testi-foot">
-          <div class="testi-avatar" style="background:var(--sepelios);">S</div>
+          <div class="testi-avatar" style="background:#152B5E;">S</div>
           <div class="testi-who"><strong>Sergio L.</strong><span>Casa Central · Hace 3 meses</span></div>
           <span class="g-badge"><span class="g-dot"></span>Google</span>
         </div>
@@ -313,7 +324,7 @@
         <span class="testi-quote-mark">“</span>
         <p>La verdad hasta hora no tengo quejas y sobre los beneficios de salud que brindan son economicas y accesibles</p>
         <div class="testi-foot">
-          <div class="testi-avatar" style="background:var(--social-2);">C</div>
+          <div class="testi-avatar" style="background:#124964;">C</div>
           <div class="testi-who"><strong>Carmen A.</strong><span>Sala de Sepelios · Hace 3 meses</span></div>
           <span class="g-badge"><span class="g-dot"></span>Google</span>
         </div>
@@ -405,6 +416,7 @@
   </div>
 </section>
 
+</main>
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="deco-field" aria-hidden="true">

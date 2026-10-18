@@ -13,7 +13,10 @@
   // 16:9 que la escena se pierde (en Servicios Sociales quedaban sólo manos y medio rostro).
   // Para esa unidad hay una versión reencuadrada en vertical; si no existe variante mobile
   // para una unidad, se usa el archivo normal.
-  var MOBILE_VARIANTS = { 'assets/hero-loop-social.mp4': 'assets/hero-loop-social-mobile.mp4' };
+  var MOBILE_VARIANTS = {
+    'assets/hero-loop-memorial.mp4': 'assets/hero-loop-memorial-mobile.mp4',
+    'assets/hero-loop-social.mp4': 'assets/hero-loop-social-mobile.mp4'
+  };
   function pickVideo(src){
     if (!src) return src;
     var narrow = window.matchMedia('(max-width: 640px)').matches;
@@ -24,10 +27,14 @@
     var src = pickVideo(rawSrc);
     if (!heroVideo || !heroVideoSource || !src || src === currentVideoSrc) return;
     currentVideoSrc = src;
+    // El <source> mobile del HTML sólo sirve para la primera carga; desde acá elige pickVideo.
+    var firstMobile = document.getElementById('heroVideoSourceMobile');
+    if (firstMobile) firstMobile.remove();
     heroVideo.classList.remove('is-ready');
     heroVideoSource.setAttribute('src', src);
     heroVideo.load();
-    heroVideo.play().catch(function(){});
+    // Si la persona pausó el fondo (o pidió reducir movimiento), el video nuevo queda quieto.
+    if (!heroVideo.closest('.is-paused')) heroVideo.play().catch(function(){});
   }
 
   // selector interactivo de unidades (hero) — cada una con su propio video de fondo
