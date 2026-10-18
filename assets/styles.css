@@ -217,7 +217,7 @@ section{position:relative;}
 @keyframes heroBreathe{from{transform:scale(1);}to{transform:scale(1.09);}}
 .hero-video{opacity:0;transition:opacity .6s ease;}
 .hero-video.is-ready{opacity:1;}
-.hero-scrim{position:absolute;inset:0;background:radial-gradient(78% 58% at 50% 46%, rgba(17,20,42,.55) 0%, rgba(17,20,42,0) 72%),linear-gradient(180deg, rgba(17,20,42,.52) 0%, rgba(17,20,42,.42) 38%, rgba(17,20,42,.82) 100%);}
+.hero-scrim{position:absolute;inset:0;background:radial-gradient(78% 58% at 50% 46%, rgba(17,20,42,.55) 0%, rgba(17,20,42,0) 72%),linear-gradient(180deg, rgba(17,20,42,.52) 0%, rgba(17,20,42,.48) 38%, rgba(17,20,42,.82) 100%);}/* tramo medio .42→.48: la etiqueta de arriba del título quedaba en 4,50:1 en celular */
 /* La consulta médica de Servicios Sociales es una escena muy luminosa (guardapolvos y
    cortinas blancas): sin refuerzo, el texto blanco se pierde encima. */
 .hero[data-active="social"] .hero-scrim{background:radial-gradient(78% 58% at 50% 46%, rgba(17,20,42,.62) 0%, rgba(17,20,42,0) 72%),linear-gradient(180deg, rgba(17,20,42,.62) 0%, rgba(17,20,42,.54) 38%, rgba(17,20,42,.86) 100%);}
@@ -703,5 +703,11 @@ main:focus{outline:none;}
 }
 
 /* Links dentro de una línea de texto (teléfonos, mails, mapa): el padding vertical en un
-   elemento inline agranda la zona táctil (~30px) sin mover el renglón ni el diseño. */
-:where(main, .footer-bottom) :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a, .footer-bottom a):not(.btn){padding-block:6px;}
+   elemento inline agranda la zona táctil (~30px) sin mover el renglón ni el diseño.
+   Sólo links sin clase (los que tienen clase traen su propio estilo de botón, como .su-tel)
+   y todo dentro de :where() para no ganarle a ninguna regla existente. */
+main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not([class])){padding-block:6px;}
+/* Estos dos están dentro de contenedores flex, donde el link se vuelve bloque y el padding
+   sí sumaría alto: el margen negativo lo compensa y la zona táctil crece igual. */
+.sp-step-links a{padding-top:6px;margin-top:-6px;}
+.footer-bottom a{padding-block:6px;margin-block:-6px;}
