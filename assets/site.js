@@ -60,3 +60,19 @@
     revealables.forEach(function(el){ io.observe(el); });
   }
 })();
+
+// Pausa de las cintas que se mueven solas (frases de Inicio, carrusel de Homenajes) — WCAG 2.2.2.
+// Usa una clase propia (is-user-paused) para que otras pausas, como la del diálogo de Homenajes,
+// no deshagan la decisión de la persona. Con "reducir movimiento" las cintas ya están quietas
+// y el botón no se muestra (CSS).
+(function(){
+  document.querySelectorAll('[data-motion-toggle]').forEach(function(btn){
+    var target = document.getElementById(btn.getAttribute('data-motion-toggle'));
+    if (!target) return;
+    btn.addEventListener('click', function(){
+      var paused = target.classList.toggle('is-user-paused');
+      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      btn.setAttribute('aria-label', btn.getAttribute(paused ? 'data-label-play' : 'data-label-pause'));
+    });
+  });
+})();

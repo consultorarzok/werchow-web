@@ -711,3 +711,18 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
    sí sumaría alto: el margen negativo lo compensa y la zona táctil crece igual. */
 .sp-step-links a{padding-top:6px;margin-top:-6px;}
 .footer-bottom a{padding-block:6px;margin-block:-6px;}
+
+/* Pausa de las cintas en movimiento (WCAG 2.2.2). Mismo dibujo que .media-toggle pero sobre
+   fondo claro/oscuro del tema, no sobre video. */
+.motion-toggle{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;padding:0;cursor:pointer;color:var(--ink);background:var(--surface);border:1px solid var(--border);transition:border-color .2s ease-out;}
+.motion-toggle:hover{border-color:var(--ink-soft);}
+.motion-toggle:focus-visible{outline:2px solid var(--memorial-ink);outline-offset:3px;}
+.motion-toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.motion-toggle .mt-play{fill:currentColor;stroke-width:1.5;}
+.motion-toggle .mt-play,.motion-toggle[aria-pressed="true"] .mt-pause{display:none;}
+.motion-toggle[aria-pressed="true"] .mt-play{display:block;}
+.phrases{position:relative;}
+.phrases .motion-toggle{position:absolute;right:16px;bottom:13px;}
+.motion-row{display:flex;justify-content:flex-end;margin-top:-18px;margin-bottom:8px;}
+.marquee.is-user-paused,.tribute-track.is-user-paused,.tribute-track:focus-within{animation-play-state:paused;}
+@media (prefers-reduced-motion:reduce){.motion-toggle{display:none;}}
