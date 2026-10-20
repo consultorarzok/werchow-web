@@ -780,20 +780,48 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
 @media (min-width:1100px){.testi-grid-4{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}}
 .reco-scores + .testi-grid{margin-bottom:34px;}
 
-/* ============ SEPELIOS EN OSCURO ============
-   La base sigue siendo el azul oscuro Werchow; el verde Memorial aparece como acento
-   (filetes, números, links, íconos) y como un resplandor tenue en las bandas alternas.
-   El verde nunca es superficie completa: así la página se distingue sin perder la marca. */
-:root[data-theme="dark"] body.page-sepelios{--sepelios-ink:#C5D493;--sp-glow:rgba(119,123,59,.20);}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body.page-sepelios{--sepelios-ink:#C5D493;--sp-glow:rgba(119,123,59,.20);}}
-body.page-sepelios .sp-section.section-alt{background:radial-gradient(70% 90% at 100% 0%,var(--sp-glow,transparent),transparent 70%),var(--bg-alt);}
-:root[data-theme="dark"] body.page-sepelios .sp-steps > li,
-:root[data-theme="dark"] body.page-sepelios .sp-data > div{border-color:rgba(197,212,147,.14);}
+/* ============ SEPELIOS EN OSCURO: VERDE CON LUZ ============
+   Sólo en Sepelios. Domina un verde muy oscuro y poco saturado (no el oliva pleno, que
+   cansaba); la profundidad viene de luces blancas suaves: filetes de 1px, brillo superior
+   en las tarjetas y dos claros difusos de fondo. El verde claro #C5D493 queda para acentos. */
+:root[data-theme="dark"] body.page-sepelios{
+    --bg:#1B2012; --bg-alt:#222817; --surface:#2A3020;
+    --ink:#F4F4EC; --ink-soft:#D2D4C4; --ink-faint:#A2A592;
+    --border:#3D4430; --border-soft:#303624;
+    --sepelios-ink:#C5D493; --social-ink:#C5D493; --memorial-ink:#C5D493; --memorial-deep:#C5D493;
+    --btn-primary-bg:#777B3B;
+    --sp-light:rgba(244,244,236,.07); --sp-line:rgba(244,244,236,.10);
+  } 
+:root[data-theme="dark"] body.page-sepelios footer{background:#13170C;}
+  /* Luz: dos claros blancos muy suaves que derivan, en lugar de los resplandores de color */ 
+:root[data-theme="dark"] body.page-sepelios::before{background-image:radial-gradient(closest-side,rgba(244,244,236,.55),rgba(244,244,236,0));opacity:.12;} 
+:root[data-theme="dark"] body.page-sepelios::after{background-image:radial-gradient(closest-side,rgba(197,212,147,.6),rgba(197,212,147,0));opacity:.10;} 
+:root[data-theme="dark"] body.page-sepelios .sp-section{box-shadow:inset 0 1px 0 var(--sp-line);} 
+:root[data-theme="dark"] body.page-sepelios .sp-section.section-alt{background:radial-gradient(60% 80% at 100% 0%,var(--sp-light),transparent 70%),radial-gradient(50% 70% at 0% 100%,rgba(119,123,59,.16),transparent 70%),var(--bg-alt);} 
+:root[data-theme="dark"] body.page-sepelios .sp-steps > li{background:linear-gradient(180deg,rgba(244,244,236,.06),rgba(244,244,236,.015) 60%),var(--surface);border-color:var(--sp-line);border-top-color:#C5D493;box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 18px 40px -24px rgba(0,0,0,.7);} 
+:root[data-theme="dark"] body.page-sepelios .sp-inc-icon{background:rgba(244,244,236,.05);border-color:rgba(244,244,236,.28);color:#F4F4EC;} 
+:root[data-theme="dark"] body.page-sepelios .sp-data > div{border-color:var(--sp-line);} 
+:root[data-theme="dark"] body.page-sepelios .nav{border-bottom-color:var(--sp-line);}
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) body.page-sepelios .sp-steps > li,
-  :root:not([data-theme="light"]) body.page-sepelios .sp-data > div{border-color:rgba(197,212,147,.14);}
+  :root:not([data-theme="light"]) body.page-sepelios{
+    --bg:#1B2012; --bg-alt:#222817; --surface:#2A3020;
+    --ink:#F4F4EC; --ink-soft:#D2D4C4; --ink-faint:#A2A592;
+    --border:#3D4430; --border-soft:#303624;
+    --sepelios-ink:#C5D493; --social-ink:#C5D493; --memorial-ink:#C5D493; --memorial-deep:#C5D493;
+    --btn-primary-bg:#777B3B;
+    --sp-light:rgba(244,244,236,.07); --sp-line:rgba(244,244,236,.10);
+  }
+  :root:not([data-theme="light"]) body.page-sepelios footer{background:#13170C;}
+  /* Luz: dos claros blancos muy suaves que derivan, en lugar de los resplandores de color */
+  :root:not([data-theme="light"]) body.page-sepelios::before{background-image:radial-gradient(closest-side,rgba(244,244,236,.55),rgba(244,244,236,0));opacity:.12;}
+  :root:not([data-theme="light"]) body.page-sepelios::after{background-image:radial-gradient(closest-side,rgba(197,212,147,.6),rgba(197,212,147,0));opacity:.10;}
+  :root:not([data-theme="light"]) body.page-sepelios .sp-section{box-shadow:inset 0 1px 0 var(--sp-line);}
+  :root:not([data-theme="light"]) body.page-sepelios .sp-section.section-alt{background:radial-gradient(60% 80% at 100% 0%,var(--sp-light),transparent 70%),radial-gradient(50% 70% at 0% 100%,rgba(119,123,59,.16),transparent 70%),var(--bg-alt);}
+  :root:not([data-theme="light"]) body.page-sepelios .sp-steps > li{background:linear-gradient(180deg,rgba(244,244,236,.06),rgba(244,244,236,.015) 60%),var(--surface);border-color:var(--sp-line);border-top-color:#C5D493;box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 18px 40px -24px rgba(0,0,0,.7);}
+  :root:not([data-theme="light"]) body.page-sepelios .sp-inc-icon{background:rgba(244,244,236,.05);border-color:rgba(244,244,236,.28);color:#F4F4EC;}
+  :root:not([data-theme="light"]) body.page-sepelios .sp-data > div{border-color:var(--sp-line);}
+  :root:not([data-theme="light"]) body.page-sepelios .nav{border-bottom-color:var(--sp-line);}
 }
-:root[data-theme="dark"] body.page-sepelios .sp-steps > li{border-top-color:#C5D493;}
 
 /* ============ NOSOTROS ============ */
 .nosotros-grid .nos-lead{font-family:var(--font-display);font-size:clamp(1.15rem,1.7vw,1.32rem);line-height:1.5;color:var(--ink);margin-top:18px;}
