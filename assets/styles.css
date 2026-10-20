@@ -780,27 +780,20 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
 @media (min-width:1100px){.testi-grid-4{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}}
 .reco-scores + .testi-grid{margin-bottom:34px;}
 
-/* ============ SEPELIOS EN OSCURO: VERDE MEMORIAL ============
-   Sólo la página de Sepelios: en modo oscuro toma los tonos del degradado verde
-   del manual (#3B3E1A · #777B3B · #C5D493) en lugar del azul institucional. */
+/* ============ SEPELIOS EN OSCURO ============
+   La base sigue siendo el azul oscuro Werchow; el verde Memorial aparece como acento
+   (filetes, números, links, íconos) y como un resplandor tenue en las bandas alternas.
+   El verde nunca es superficie completa: así la página se distingue sin perder la marca. */
+:root[data-theme="dark"] body.page-sepelios{--sepelios-ink:#C5D493;--sp-glow:rgba(119,123,59,.20);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body.page-sepelios{--sepelios-ink:#C5D493;--sp-glow:rgba(119,123,59,.20);}}
+body.page-sepelios .sp-section.section-alt{background:radial-gradient(70% 90% at 100% 0%,var(--sp-glow,transparent),transparent 70%),var(--bg-alt);}
+:root[data-theme="dark"] body.page-sepelios .sp-steps > li,
+:root[data-theme="dark"] body.page-sepelios .sp-data > div{border-color:rgba(197,212,147,.14);}
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) body.page-sepelios{
-    --bg:#23260F; --bg-alt:#1C1E0B; --surface:#31341A;
-    --ink:#F4F4EC; --ink-soft:#D7DAC1; --ink-faint:#A8AC8A;
-    --border:#4A4E27; --border-soft:#3A3D1E;
-    --sepelios-ink:#C5D493; --social-ink:#C5D493; --memorial-ink:#C5D493; --memorial-deep:#C5D493;
-    --btn-primary-bg:#777B3B;
-  }
+  :root:not([data-theme="light"]) body.page-sepelios .sp-steps > li,
+  :root:not([data-theme="light"]) body.page-sepelios .sp-data > div{border-color:rgba(197,212,147,.14);}
 }
-:root[data-theme="dark"] body.page-sepelios{
-  --bg:#23260F; --bg-alt:#1C1E0B; --surface:#31341A;
-  --ink:#F4F4EC; --ink-soft:#D7DAC1; --ink-faint:#A8AC8A;
-  --border:#4A4E27; --border-soft:#3A3D1E;
-  --sepelios-ink:#C5D493; --social-ink:#C5D493; --memorial-ink:#C5D493; --memorial-deep:#C5D493;
-  --btn-primary-bg:#777B3B;
-}
-:root[data-theme="dark"] body.page-sepelios footer{background:#171909;}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body.page-sepelios footer{background:#171909;}}
+:root[data-theme="dark"] body.page-sepelios .sp-steps > li{border-top-color:#C5D493;}
 
 /* ============ NOSOTROS ============ */
 .nosotros-grid .nos-lead{font-family:var(--font-display);font-size:clamp(1.15rem,1.7vw,1.32rem);line-height:1.5;color:var(--ink);margin-top:18px;}
