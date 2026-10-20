@@ -125,3 +125,55 @@
   }, { threshold: 0.6 });
   items.forEach(function(c){ io.observe(c.el); });
 })();
+
+// Nav adaptativa: mira qué hay detrás del menú y, si es una zona oscura, lo pasa a blanco.
+(function(){
+  var nav = document.querySelector('.nav');
+  var links = document.getElementById('navLinks');
+  if (!nav || !document.elementsFromPoint) return;
+  var DARK = '.hero,.sepelio-band,.ribbon,footer,.planes,.stat-block,.urgent-card,.sp-homenaje';
+  var ticking = false;
+
+  function lum(rgb){
+    var m = rgb.match(/[\d.]+/g);
+    if (!m) return 1;
+    var a = m.length > 3 ? parseFloat(m[3]) : 1;
+    if (a < 0.5) return null;                       // transparente: seguir subiendo
+    return (0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]) / 255;
+  }
+  function isDark(el){
+    for (var n = el; n && n !== document.documentElement; n = n.parentElement){
+      if (n.matches && n.matches(DARK)) return true;
+      var l = lum(getComputedStyle(n).backgroundColor);
+      if (l !== null) return l < 0.45;
+    }
+    return false;
+  }
+  function update(){
+    ticking = false;
+    var open = links && links.classList.contains('open');
+    var dark = false;
+    if (!open){
+      var r = nav.getBoundingClientRect();
+      var y = Math.min(window.innerHeight - 1, Math.max(1, r.bottom - 6));
+      var votes = 0, total = 0;
+      [0.1, 0.3, 0.5, 0.7, 0.9].forEach(function(f){
+        var els = document.elementsFromPoint(window.innerWidth * f, y);
+        for (var i = 0; i < els.length; i++){
+          if (nav.contains(els[i])) continue;
+          total++; if (isDark(els[i])) votes++;
+          break;
+        }
+      });
+      dark = total > 0 && votes / total >= 0.5;
+    }
+    nav.classList.toggle('nav--over-dark', dark);
+  }
+  function req(){ if (!ticking){ ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', req, {passive:true});
+  window.addEventListener('resize', req);
+  window.addEventListener('load', req);
+  var t = document.getElementById('navToggle');
+  if (t) t.addEventListener('click', function(){ setTimeout(update, 0); });
+  update();
+})();
