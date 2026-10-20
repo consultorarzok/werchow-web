@@ -651,7 +651,7 @@ footer{background:#3B3E1A;color:#E9EAD9;padding:64px 0 30px;position:relative;ov
 .sp-inc h3{font-size:1.12rem;margin:16px 0 6px;}
 .sp-inc p{color:var(--ink-soft);font-size:.92rem;margin:0;}
 .sp-sala{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;}
-.sp-sala-photo{aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:radial-gradient(110% 80% at 70% 15%,#C5D493 0%,#777B3B 55%,#3B3E1A 100%);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-2);position:relative;}
+.sp-sala-photo{aspect-ratio:3/4;width:100%;max-width:440px;justify-self:center;border-radius:20px;overflow:hidden;background:radial-gradient(110% 80% at 70% 15%,#C5D493 0%,#777B3B 55%,#3B3E1A 100%);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-2);position:relative;}
 .sp-sala-photo::before{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.5);border-radius:13px;}
 .sp-sala-ph{width:22%;color:rgba(255,255,255,.9);}
 .sp-sala-ph svg{width:100%;height:auto;display:block;}
