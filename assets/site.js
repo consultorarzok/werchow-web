@@ -76,3 +76,52 @@
     });
   });
 })();
+
+// Contadores: los números marcados con data-count suben desde 0 al valor real
+// cuando entran en pantalla. El HTML ya trae el valor final (sin JS, o con
+// movimiento reducido, se ve igual); acá sólo se anima y se reserva el ancho para
+// que el texto de al lado no se corra.
+(function(){
+  var els = document.querySelectorAll('[data-count]');
+  if (!els.length || !('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
+
+  function setup(el){
+    var m = el.textContent.trim().match(/^(\D*)(\d+(?:,\d+)?)(.*)$/);
+    if (!m) return null;
+    var dec = m[2].indexOf(',') > -1 ? m[2].split(',')[1].length : 0;
+    var c = { el: el, pre: m[1], suf: m[3], dec: dec, end: parseFloat(m[2].replace(',', '.')), final: el.textContent };
+    el.style.display = 'inline-block';
+    el.style.minWidth = el.getBoundingClientRect().width + 'px';
+    el.style.fontVariantNumeric = 'tabular-nums';
+    el.textContent = c.pre + (0).toFixed(dec).replace('.', ',') + c.suf;
+    return c;
+  }
+
+  function run(c){
+    var t0 = null, DUR = 1400;
+    function step(ts){
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / DUR, 1);
+      c.el.textContent = p < 1
+        ? c.pre + (c.end * easeOut(p)).toFixed(c.dec).replace('.', ',') + c.suf
+        : c.final;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var items = [];
+  els.forEach(function(el){ var c = setup(el); if (c) items.push(c); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      var c = items.filter(function(i){ return i.el === e.target; })[0];
+      if (c) run(c);
+    });
+  }, { threshold: 0.6 });
+  items.forEach(function(c){ io.observe(c.el); });
+})();
