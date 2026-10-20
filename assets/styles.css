@@ -896,3 +896,32 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
 @media (max-width:700px){.cv-cta-inner{grid-template-columns:1fr;gap:18px;}}
 @media (prefers-reduced-motion:reduce){.cv-card,.cv-media img{transition:none;}}
 @media (min-width:1100px){.testi-grid-4 .g-badge{display:none;}.testi-grid-4 .testi-card{padding:24px 20px 20px;}}
+
+/* Fondo del manual (Degradado-04, Memorial texturado) detrás de toda la página de Sepelios
+   en oscuro: oscurecido para que el texto claro mantenga contraste y con un movimiento lento
+   de la curva de luz. Las secciones quedan transparentes para que se vea continuo. */
+:root[data-theme="dark"] body.page-sepelios::before{
+    inset:0;top:0;right:0;bottom:0;left:0;width:auto;aspect-ratio:auto;opacity:1;
+    background:linear-gradient(180deg,rgba(14,17,9,.50),rgba(14,17,9,.64)),url('brand/deg-memorial.jpg') center/cover no-repeat;
+    animation:sp-bg-drift 48s ease-in-out infinite alternate;
+  }
+:root[data-theme="dark"] body.page-sepelios::after{display:none;}
+:root[data-theme="dark"] body.page-sepelios .sp-section,body.page-sepelios .sp-section.section-alt{background:transparent;}
+:root[data-theme="dark"] body.page-sepelios .sp-section.section-alt{background:rgba(10,12,6,.22);}
+:root[data-theme="dark"] body.page-sepelios .sp-steps > li{background:linear-gradient(180deg,rgba(244,244,236,.07),rgba(244,244,236,.02) 60%),rgba(20,24,13,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) body.page-sepelios::before{
+    inset:0;top:0;right:0;bottom:0;left:0;width:auto;aspect-ratio:auto;opacity:1;
+    background:linear-gradient(180deg,rgba(14,17,9,.50),rgba(14,17,9,.64)),url('brand/deg-memorial.jpg') center/cover no-repeat;
+    animation:sp-bg-drift 48s ease-in-out infinite alternate;
+  }
+  :root:not([data-theme="light"]) body.page-sepelios::after{display:none;}
+  :root:not([data-theme="light"]) body.page-sepelios .sp-section,body.page-sepelios .sp-section.section-alt{background:transparent;}
+  :root:not([data-theme="light"]) body.page-sepelios .sp-section.section-alt{background:rgba(10,12,6,.22);}
+  :root:not([data-theme="light"]) body.page-sepelios .sp-steps > li{background:linear-gradient(180deg,rgba(244,244,236,.07),rgba(244,244,236,.02) 60%),rgba(20,24,13,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);}
+}
+@media (max-width:700px){
+  :root[data-theme="dark"] body.page-sepelios::before{background-image:linear-gradient(180deg,rgba(14,17,9,.50),rgba(14,17,9,.64)),url('brand/deg-memorial-sm.jpg');}
+}
+@keyframes sp-bg-drift{from{transform:scale(1.04) translate3d(0,0,0);}to{transform:scale(1.14) translate3d(-2.5%,2%,0);}}
+@media (prefers-reduced-motion:reduce){body.page-sepelios::before{animation:none!important;}}

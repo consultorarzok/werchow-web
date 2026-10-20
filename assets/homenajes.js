@@ -18,8 +18,11 @@
     if (typeof dialog.showModal === 'function') dialog.showModal();
   }
 
-  track.querySelectorAll('.tribute:not([aria-hidden="true"])').forEach(function(btn){
-    btn.addEventListener('click', function(){ openTribute(btn); });
+  // Delegado en la cinta: también abren las copias que la cinta repite para dar la vuelta
+  // (esas van con aria-hidden para el lector de pantalla, pero se ven y se tocan igual).
+  track.addEventListener('click', function(e){
+    var btn = e.target.closest('.tribute');
+    if (btn && btn.dataset.name) openTribute(btn);
   });
 
   dialog.querySelectorAll('[data-close]').forEach(function(b){
