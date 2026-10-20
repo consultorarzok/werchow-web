@@ -728,3 +728,14 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
 .motion-row{display:flex;justify-content:flex-end;margin-top:-18px;margin-bottom:8px;}
 .marquee.is-user-paused,.tribute-track.is-user-paused,.tribute-track:focus-within{animation-play-state:paused;}
 @media (prefers-reduced-motion:reduce){.motion-toggle{display:none;}}
+
+/* Zonas táctiles de 44px en pantallas táctiles (el aspecto no cambia: se agranda el área, no el texto) */
+@media (pointer:coarse){
+  .logo,.info-link,.sp-step-links a{min-height:44px;}
+  .info-link{padding-block:8px 6px;}
+  .switch-tab{min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
+  .nav-toggle{min-width:44px;min-height:44px;align-items:center;justify-content:center;}
+  .footer-col a{padding:12px 0;}
+  .sp-step-links a{display:inline-flex;align-items:center;}
+  .footer-bottom a{display:inline-flex;align-items:center;min-height:44px;margin-block:-8px;}
+}

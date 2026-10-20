@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://consultorarzok.github.io/werchow-web/sitemap.xml

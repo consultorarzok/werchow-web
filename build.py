@@ -65,7 +65,10 @@ def page_meta(num, title):
 
 """
 
-def head(title, description, og_title=None, og_description=None):
+BASE = 'https://consultorarzok.github.io/werchow-web/'
+
+def head(title, description, og_title=None, og_description=None, filename='index.html'):
+    url = BASE if filename == 'index.html' else BASE + filename
     og_title = og_title or title
     og_description = og_description or description
     return f'''<!doctype html>
@@ -77,6 +80,14 @@ def head(title, description, og_title=None, og_description=None):
 <meta property="og:title" content="{og_title}">
 <meta property="og:description" content="{og_description}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Werchow">
+<meta property="og:locale" content="es_AR">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{BASE}assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{url}">
 <title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,10 +103,10 @@ def render_links(html):
         html = html.replace(f'__{href_key}__', href_val)
     return html
 
-def assemble(active_key, title, description, main_html, extra_scripts=''):
+def assemble(active_key, title, description, main_html, extra_scripts='', filename='index.html'):
     main_html = render_links(main_html)
     out = []
-    out.append(head(title, description))
+    out.append(head(title, description, filename=filename))
     out.append('<body>\n')
     out.append('<a class="skip-link" href="#contenido">Saltar al contenido</a>\n')
     out.append(theme_inline)
@@ -185,10 +196,16 @@ def main():
     }
 
     for filename, cfg in pages.items():
-        html = assemble(cfg['active'], cfg['title'], cfg['description'], cfg['main'], cfg.get('extra_scripts', ''))
+        html = assemble(cfg['active'], cfg['title'], cfg['description'], cfg['main'], cfg.get('extra_scripts', ''), filename)
         with open(os.path.join(ROOT, filename), 'w', encoding='utf-8') as f:
             f.write(html)
         print('wrote', filename, len(html), 'bytes')
+
+    urls = ''.join(f'  <url><loc>{BASE if f == "index.html" else BASE + f}</loc></url>\n' for f in pages)
+    with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n')
+    with open(os.path.join(ROOT, 'robots.txt'), 'w', encoding='utf-8') as f:
+        f.write('User-agent: *\nAllow: /\n\nSitemap: ' + BASE + 'sitemap.xml\n')
 
 if __name__ == '__main__':
     main()
