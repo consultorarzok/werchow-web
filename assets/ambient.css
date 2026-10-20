@@ -1,0 +1,51 @@
+/* ============ FONDO AMBIENTE Y MICROMOVIMIENTO ============
+   Capa muy suave detrás del contenido: dos resplandores de marca (los radiales
+   del manual) que derivan despacio. Sólo transform/opacity,
+   sin JS. Se apaga con prefers-reduced-motion. */
+body{position:relative;}
+body::before,body::after{
+  content:"";position:fixed;z-index:-1;pointer-events:none;
+  background-repeat:no-repeat;background-size:contain;background-position:center;
+  will-change:transform;
+}
+body::before{
+  width:min(78vw,860px);aspect-ratio:560/550;
+  top:-12vh;right:-18vw;
+  background-image:radial-gradient(closest-side,rgba(197,212,147,.55),rgba(197,212,147,0));
+  opacity:.5;
+  animation:amb-drift-a 70s ease-in-out infinite alternate;
+}
+body::after{
+  width:min(70vw,760px);aspect-ratio:560/550;
+  bottom:-16vh;left:-20vw;
+  background-image:radial-gradient(closest-side,rgba(150,191,216,.6),rgba(150,191,216,0));
+  opacity:.5;
+  animation:amb-drift-b 85s ease-in-out infinite alternate;
+}
+@keyframes amb-drift-a{from{transform:translate3d(0,0,0) scale(1);}to{transform:translate3d(-7vw,9vh,0) scale(1.12);}}
+@keyframes amb-drift-b{from{transform:translate3d(0,0,0) scale(1.08);}to{transform:translate3d(8vw,-8vh,0) scale(.96);}}
+/* oscuro: los radiales reales del manual (centro oscuro, borde claro) */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) body::before{background-image:url('brand/glow-memorial.webp');opacity:.18;}
+  :root:not([data-theme="light"]) body::after{background-image:url('brand/glow-social.webp');opacity:.18;}
+}
+:root[data-theme="dark"] body::before{background-image:url('brand/glow-memorial.webp');opacity:.18;}
+:root[data-theme="dark"] body::after{background-image:url('brand/glow-social.webp');opacity:.18;}
+
+/* micromovimiento: elevar tarjetas, acercar fotos, subrayado que crece */
+.bnf-card,.testi-card,.branch-card,.assist-card{
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease;
+}
+@media (hover:hover){
+  .bnf-card:hover,.testi-card:hover,.branch-card:hover,.assist-card:hover{
+    transform:translateY(-4px);box-shadow:var(--shadow-2);
+  }
+  .bnf-card img,.photo-trio img,.tribute img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1);}
+  .bnf-card:hover img,.photo-trio figure:hover img,.tribute:hover img{transform:scale(1.04);}
+  .nav-links a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s ease;}
+  .nav-links a:hover{background-size:100% 1px;}
+}
+@media (prefers-reduced-motion:reduce){
+  body::before,body::after{animation:none;}
+  .bnf-card,.testi-card,.branch-card,.assist-card,.bnf-card img,.photo-trio img,.tribute img{transition:none;}
+}

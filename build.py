@@ -83,6 +83,7 @@ def head(title, description, og_title=None, og_description=None):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
 <link rel="preload" href="assets/fonts/Larken-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/ambient.css">
 </head>
 '''
 
