@@ -131,7 +131,7 @@
   var nav = document.querySelector('.nav');
   var links = document.getElementById('navLinks');
   if (!nav || !document.elementsFromPoint) return;
-  var DARK = '.hero,.sepelio-band,.ribbon,footer,.planes,.stat-block,.urgent-card,.sp-homenaje';
+  var DARK = '.hero,.sepelio-band,.ribbon,footer,.planes,.stat-block,.urgent-card,.sp-homenaje,.nos-quote,.cv-cta';
   var ticking = false;
 
   function lum(rgb){

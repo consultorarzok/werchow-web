@@ -107,7 +107,7 @@ def assemble(active_key, title, description, main_html, extra_scripts='', filena
     main_html = render_links(main_html)
     out = []
     out.append(head(title, description, filename=filename))
-    out.append('<body>\n')
+    out.append(f'<body class="page-{filename[:-5]}">\n')
     out.append('<a class="skip-link" href="#contenido">Saltar al contenido</a>\n')
     out.append(theme_inline)
     out.append('\n\n<!-- ============ PROGRESS BAR ============ -->\n<div class="progress-bar" id="progressBar"></div>\n\n')
