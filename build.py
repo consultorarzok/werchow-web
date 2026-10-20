@@ -146,7 +146,7 @@ def main():
             active='INICIO',
             title='Werchow',
             description='Werchow: Sepelios, Memorial y Salas y Servicios Sociales en Jujuy: servicio de sepelio con guardia 24 horas, beneficios para afiliados y homenajes. Nuestra vocación es estar.',
-            main='\n\n'.join([hero, sepelio_home, beneficios_home, recomendaciones_home, ribbon, moments, marquee]),
+            main='\n\n'.join([hero, sepelio_home, beneficios_home, recomendaciones_home, ribbon]),
             extra_scripts='<script src="assets/hero.js"></script>\n<script src="assets/media.js"></script>\n',
         ),
         'sepelios.html': dict(
