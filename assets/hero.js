@@ -41,7 +41,7 @@
   var UNITS = {
     memorial: {
       eyebrow: 'Memorial y Salas · nueva propuesta',
-      title: 'Cuidamos de vos <em>y tu familia.</em>',
+      title: 'Cuidamos de vos <em class="brk">y tu familia.</em>',
       lead: 'Te acompañamos desde el primer momento y estamos cuando más nos necesitas.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Memorial%20y%20Salas',
       video: 'assets/hero-loop-memorial.mp4',
