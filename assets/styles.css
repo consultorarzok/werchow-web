@@ -925,3 +925,8 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
 }
 @keyframes sp-bg-drift{from{transform:scale(1.04) translate3d(0,0,0);}to{transform:scale(1.14) translate3d(-2.5%,2%,0);}}
 @media (prefers-reduced-motion:reduce){body.page-sepelios::before{animation:none!important;}}
+
+.footer-social{display:flex;gap:12px;margin-top:22px;}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);color:#E9EAD9;transition:background .2s,color .2s,border-color .2s;}
+.footer-social a:hover{background:#F5F4E8;color:#1A2140;border-color:#F5F4E8;}
+.footer-social svg{width:20px;height:20px;}
