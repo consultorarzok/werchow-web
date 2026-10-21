@@ -936,3 +936,45 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
 .footer-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);color:#E9EAD9;transition:background .2s,color .2s,border-color .2s;}
 .footer-social a:hover{background:#F5F4E8;color:#1A2140;border-color:#F5F4E8;}
 .footer-social svg{width:20px;height:20px;}
+
+
+/* Tablet y celular: el texto del hero baja al pie y el paisaje respira arriba;
+   se saca lo secundario (etiqueta y cápsula de años) para no tapar el video. */
+@media (max-width:1024px){
+  .hero{padding:28px 0 60px;}
+  .hero-content{align-self:stretch;}
+  .hero .switcher{margin-bottom:auto;}
+  .hero-eyebrow,.hero-stat{display:none;}
+  .hero h1{margin-top:0;}
+  .hero-scrim,.hero[data-active="social"] .hero-scrim{background:linear-gradient(180deg,rgba(17,20,42,.30) 0%,rgba(17,20,42,.06) 30%,rgba(17,20,42,.30) 48%,rgba(17,20,42,.66) 66%,rgba(17,20,42,.90) 100%);}
+  .hero[data-active="social"] .hero-scrim{background:linear-gradient(180deg,rgba(17,20,42,.40) 0%,rgba(17,20,42,.16) 30%,rgba(17,20,42,.42) 48%,rgba(17,20,42,.74) 66%,rgba(17,20,42,.92) 100%);}
+}
+@media (min-width:641px) and (max-width:1024px) and (orientation:portrait){.hero{min-height:74vh;min-height:74svh;}}
+
+/* Sepelio en la home: menos carga sobre la foto en pantallas chicas */
+@media (max-width:1024px){
+  .sepelio-band{align-items:flex-end;min-height:72vh;min-height:72svh;padding:56px 0 44px;}
+  .sepelio-scrim{background:linear-gradient(180deg,rgba(38,40,18,.18) 0%,rgba(38,40,18,.12) 28%,rgba(38,40,18,.62) 52%,rgba(38,40,18,.92) 100%);}
+  .sepelio-grid{gap:22px;}
+  .sepelio-lead{margin-top:12px;}
+  .sepelio-urgent{padding:16px 18px;}
+  .sepelio-urgent .su-kicker,.sepelio-urgent .su-place{display:none;}
+  .sepelio-urgent{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .sepelio-urgent .su-title{grid-column:1/-1;margin:0 0 4px;font-size:1.2rem;}
+  .sepelio-urgent .su-tel{margin-top:0;display:flex;align-items:center;justify-content:center;}
+}
+@media (max-width:420px){.sepelio-urgent{grid-template-columns:1fr;}}
+
+@media (max-width:560px){
+  .sepelio-band{min-height:64vh;min-height:64svh;padding:48px 0 40px;}
+  .sepelio-lead{display:none;}
+  .sepelio-scrim{background:linear-gradient(180deg,rgba(38,40,18,.55) 0%,rgba(38,40,18,.5) 30%,rgba(38,40,18,.7) 55%,rgba(38,40,18,.93) 100%);}
+  .sepelio-actions{margin-top:20px;}
+  .sepelio-urgent{padding:14px;}
+  .sepelio-urgent .su-title{font-size:1.05rem;}
+}
+@media (min-width:361px) and (max-width:420px){
+  .sepelio-urgent{grid-template-columns:1fr 1fr;gap:8px;}
+  .sepelio-urgent .su-wa,.sepelio-urgent .su-tel{font-size:.8rem;padding:11px 6px;gap:6px;}
+  .sepelio-urgent .su-wa svg{width:17px;height:17px;}
+}
