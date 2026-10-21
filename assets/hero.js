@@ -46,10 +46,10 @@
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Memorial%20y%20Salas',
       video: 'assets/hero-loop-memorial.mp4',
       fcIcon: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.4-9.5 9-9.5 9Z" stroke="#fff" stroke-width="1.6"/></svg>',
-      fcStat: '+50 años', fcSub: 'acompañando familias en Jujuy'
+      fcStat: '+60 años', fcSub: 'Te acompañamos desde el primer momento y estamos cuando más nos necesitas'
     },
     sepelios: {
-      eyebrow: 'Sepelios · desde hace 50 años',
+      eyebrow: 'Sepelios · desde hace 60 años',
       title: 'Atención fúnebre <em>humana</em>.',
       lead: 'Contenida y profesional, con planes adaptados a cada necesidad. Anticiparse es la mejor forma de atravesar los momentos difíciles con tranquilidad.',
       waText: 'Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Sepelios',
