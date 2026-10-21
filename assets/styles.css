@@ -944,7 +944,8 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
   .hero{padding:28px 0 60px;}
   .hero-content{align-self:stretch;}
   .hero .switcher{margin-bottom:auto;}
-  .hero-eyebrow,.hero-stat{display:none;}
+  .hero-eyebrow{display:none;}
+  .hero-stat{margin-top:26px;}
   .hero h1{margin-top:0;}
   .hero-scrim,.hero[data-active="social"] .hero-scrim{background:linear-gradient(180deg,rgba(17,20,42,.30) 0%,rgba(17,20,42,.06) 30%,rgba(17,20,42,.30) 48%,rgba(17,20,42,.66) 66%,rgba(17,20,42,.90) 100%);}
   .hero[data-active="social"] .hero-scrim{background:linear-gradient(180deg,rgba(17,20,42,.40) 0%,rgba(17,20,42,.16) 30%,rgba(17,20,42,.42) 48%,rgba(17,20,42,.74) 66%,rgba(17,20,42,.92) 100%);}
@@ -977,4 +978,8 @@ main :where(a[href^="tel:"], a[href^="mailto:"], dd a, span > a, p a):where(:not
   .sepelio-urgent{grid-template-columns:1fr 1fr;gap:8px;}
   .sepelio-urgent .su-wa,.sepelio-urgent .su-tel{font-size:.8rem;padding:11px 6px;gap:6px;}
   .sepelio-urgent .su-wa svg{width:17px;height:17px;}
+}
+@media (max-width:640px){
+  .hero-scrim{background:linear-gradient(180deg,rgba(17,20,42,.32) 0%,rgba(17,20,42,.14) 22%,rgba(17,20,42,.46) 40%,rgba(17,20,42,.72) 62%,rgba(17,20,42,.92) 100%);}
+  .hero[data-active="social"] .hero-scrim{background:linear-gradient(180deg,rgba(17,20,42,.42) 0%,rgba(17,20,42,.24) 22%,rgba(17,20,42,.56) 40%,rgba(17,20,42,.78) 62%,rgba(17,20,42,.93) 100%);}
 }
